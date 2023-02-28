@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `priseRdv`.`medecin`
     `estDisponibleMercredi` BOOLEAN     NOT NULL,
     `estDisponibleJeudi`  BOOLEAN     NOT NULL,
     `estDisponibleVendredi`    BOOLEAN     NOT NULL,
-    `estDisponibleSamedi  BOOLEAN     NOT NULL,
+    `estDisponibleSamedi`  BOOLEAN     NOT NULL,
     `estDisponibleDimanche`    BOOLEAN     NOT NULL,
     `specialisation_id`    INT         NOT NULL,
     `clinique_id`            INT         NOT NULL,
@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `priseRdv`.`medecin`
             ON DELETE NO ACTION
             ON UPDATE NO ACTION,
     CONSTRAINT `fk_medecin_specialisation1_idx`
-        FOREIGN KEY (`specialization_id`)
+        FOREIGN KEY (`specialisation_id`)
             REFERENCES `monrdv`.`specialisation` (`id`)
             ON DELETE NO ACTION
             ON UPDATE NO ACTION
