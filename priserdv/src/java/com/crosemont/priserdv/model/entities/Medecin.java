@@ -42,6 +42,25 @@ public class Medecin implements Serializable{
         this.numeroMedecin = numeroMedecin;
     }
 
+    public Medecin(int id, String nom, String prenom, int numeroMedecin, String email, String motdepasse, float appointmentPrice, boolean estDisponibleLundi, boolean estDisponibleMardi, boolean estDisponibleMercredi, boolean estDisponibleJeudi, boolean estDisponibleVendredi, boolean estDisponibleSamedi, boolean estDisponibleDimanche, int specialisation_id, int clinique_id) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.numeroMedecin = numeroMedecin;
+        this.email = email;
+        this.motdepasse = motdepasse;
+        this.appointmentPrice = appointmentPrice;
+        this.estDisponibleLundi = estDisponibleLundi;
+        this.estDisponibleMardi = estDisponibleMardi;
+        this.estDisponibleMercredi = estDisponibleMercredi;
+        this.estDisponibleJeudi = estDisponibleJeudi;
+        this.estDisponibleVendredi = estDisponibleVendredi;
+        this.estDisponibleSamedi = estDisponibleSamedi;
+        this.estDisponibleDimanche = estDisponibleDimanche;
+        this.specialisation_id = specialisation_id;
+        this.clinique_id = clinique_id;
+    }
+
     public Medecin(int id, String nom, String prenom, int numeroMedecin, String email, String motdepasse, float appointmentPrice, int specialisation_id, int clinique_id) {
         this.id = id;
         this.nom = nom;
@@ -193,6 +212,23 @@ public class Medecin implements Serializable{
     public void setDisponibiliteFinDeSemaine (boolean estDisponible) {
         this.estDisponibleSamedi = estDisponible;
         this.estDisponibleDimanche = estDisponible;
+    }
+    
+    public String afficherTitreDesColonnes() {
+        String message = "";
+        message = String.format(" %-10s  %30s %15s %15s %15s %15s %15s %15s %15s %15s %15s %15s %15s %15s %15s %25s", "Id", "nom", "prenom", "numeromedecin", "email",
+                "motdepasse", "appointmentPrice","esdispoLundi","estdispomardi","estdispomerc","estdispojeu","estdispoven","estdisposam","estdispodim","specialisation","cliniqueid");
+       message+="\n -------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
+       return message;
+    }
+  
+    @Override
+       public String toString() {
+         String message = "";
+       message = String.format(" %-10d  %30s %15b %15s %15s %15s %15s %15s %15s %15s %15s %15s %15s %15s %15s %25s ",this.id,this.nom, this.prenom,this.numeroMedecin,this.email,
+                    this.motdepasse, this.appointmentPrice,this.estDisponibleLundi,this.estDisponibleMardi,this.estDisponibleMercredi,this.estDisponibleJeudi,this.estDisponibleVendredi,this.estDisponibleSamedi,this.estDisponibleDimanche,
+                    this.specialisation_id,this.clinique_id); 
+       return message;
     }
     
 }

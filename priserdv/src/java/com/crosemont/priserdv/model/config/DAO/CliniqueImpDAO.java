@@ -26,6 +26,7 @@ public class CliniqueImpDAO implements CliniqueDAO{
     private static final String SQL_SELECT_CLINIQUE_PAR_EMAIL = "select * from clinique where email = ?";
     private static final String SQL_SELECT_CLINIQUE_PAR_ADDRESSERUE = "select * from clinique where adresseRue = ?";
     private static final String SQL_CONNEXION_PAR_EMAIL_AND_PASSWORD = "select nomClinique, adresseRue from clinique where email=? and motdepasse=?";
+    private static final String SQL_INSERT_CLINIQUE="insert into clinique(id,email,motdepasse,nomClinique,adresseRue,zip,pays,ville,province) value(?,?,?,?,?,?,?,?,?)";
     @Override
     public List<Clinique> findAll() {
         
@@ -263,7 +264,36 @@ public class CliniqueImpDAO implements CliniqueDAO{
 
     @Override
     public boolean create(Clinique clinique) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        boolean retour = false;
+        int nbLigne = 0;
+        PreparedStatement ps;
+
+        try {
+            ps = ConnexionBD.getConnection().prepareStatement(SQL_INSERT_CLINIQUE);
+            //   Insérer les données dans la table parente, utilisateurs
+            ps.setInt(1, clinique.getId());
+            ps.setString(2, clinique.getEmail());
+            ps.setString(3, clinique.getMotdepasse());
+            ps.setString(4, clinique.getNomClinique());
+            ps.setString(5, clinique.getAddresseRue());
+
+            ps.setString(6, clinique.getZip());
+            ps.setString(7, clinique.getPays());
+            ps.setString(8, clinique.getVille());
+            ps.setString(9, clinique.getProvince());
+            nbLigne = ps.executeUpdate();
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            Logger.getLogger(CliniqueImpDAO.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+//		System.out.println("nb ligne " + nbLigne);
+        if (nbLigne > 0) {
+            retour = true;
+        }
+        ConnexionBD.closeConnection();
+        return retour;
     }
 
     @Override

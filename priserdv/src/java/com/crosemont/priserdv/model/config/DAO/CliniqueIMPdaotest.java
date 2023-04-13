@@ -24,8 +24,9 @@ public class CliniqueIMPdaotest {
         //testFindByName();
         //testFindByEmail();
         //testFindByAddresseRue();
+        testCreate_Utilisateur();
         testFindAll();
-        testExistsByEmailAndPassword();
+        //testExistsByEmailAndPassword();
     }
     public static void testFindAll() {
         System.out.println("findAll");
@@ -97,6 +98,49 @@ public class CliniqueIMPdaotest {
         Clinique result = instance.existsByEmailAndPassword(email, motDePasse);
         System.out.println(result.toString());
 
+    }
+    public static void testCreate_Utilisateur() {
+        System.out.println("create");
+         Scanner lectureClavier = new Scanner(System.in);
+        Clinique clinique = null;
+        CliniqueImpDAO instance = new CliniqueImpDAO();
+        
+           System.out.println("Entrez l'id de la clinique : ");
+           int id = lectureClavier.nextInt();
+          System.out.println("Entrez l'email de la clinique : ");
+           String email = lectureClavier.next();
+          
+           System.out.println("Creer un mot de passe");
+               
+           String motdepasse  = lectureClavier.next();
+      
+           System.out.println("Entrez le nom de la Clinqiue : ");
+           String nomClinique = lectureClavier.next();
+            //  utilisateur.setNom(nom);
+           System.out.println("Entrez l'adresse de de la clinique: ");
+           String adresseRue = lectureClavier.next();
+       
+           System.out.println("Entrez le Zip code : ");
+           String zip = lectureClavier.next();
+    
+           System.out.println("Entrez le pays de la clinqiue : ");
+           String pays = lectureClavier.next();
+           
+           System.out.println("Entrez la ville de la clinqiue:  ");
+           String ville = lectureClavier.next();
+           
+           System.out.println("Entrez la province de la  : ");
+           String province = lectureClavier.next();
+     
+        clinique = new Clinique(id,email, motdepasse, nomClinique, adresseRue, zip, pays,ville,province);
+        boolean expResult = false;
+        boolean result = instance.create(clinique);
+             if (result) {
+                  System.out.println("Insertion reussite ");
+             }else{
+                  System.out.println("insertion echec ");
+             }
+      
     }
     
 }
