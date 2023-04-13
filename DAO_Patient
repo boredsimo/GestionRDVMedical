@@ -24,3 +24,5 @@ public interface PatientDAO {
 
     boolean isNAMxist(String nam);
 }
+
+
