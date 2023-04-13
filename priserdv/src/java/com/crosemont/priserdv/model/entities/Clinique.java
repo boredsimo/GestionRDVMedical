@@ -116,22 +116,6 @@ public class Clinique implements Serializable {
     public void setProvince(String province) {
         this.province = province;
     }
-    public String afficherTitreDesColonnes() {
-        String message = "";
-        message = String.format(" %-10s  %30s %15s %15s %15s %15s %15s %15s %25s", "Id", "Email", "motdepasse", "nomClinique", "addresseRue",
-                "zip", "pays","ville","province");
-       message+="\n -------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
-       return message;
-    }
-  
-    @Override
-       public String toString() {
-         String message = "";
-       message = String.format(" %-10d  %30s %15b %15s %15s %15s %15s %15s %25s ",this.id,this.email, this.motdepasse,this.nomClinique,this.addresseRue,
-                    this.zip, this.pays,this.ville,this.province); 
-       return message;
-    }
-
 
      
     
