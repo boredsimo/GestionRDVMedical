@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -15,37 +16,7 @@ and open the template in the editor.
         <script src="js/tabPages.js"></script>
     </head>
     <body>
-        <header>
-            <div class="banniere">
-                <img id="logo" src="images/logo.png" alt="logo" />
-                <img id="rosemont" src="images/rosemont.png" alt="rosemont" />
-                <h1>Clinique Médicale du Collège de Rosemont</h1>
-
-            </div>
-            <div>
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Accueil</a></li>
-                        <li>
-                            <a
-                                href="infos.html">Infos
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a
-                                href="inscription.html">Inscription
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="connexion.html">Connexion
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-
-            </div>
-        </header>
+        <jsp:include page="enTete.jsp"/>
         <main class="page_principal">
 
             <marquee> Bienvenue sur le site web de la Clinique Médicale du Collège de Rosemont</marquee>
@@ -95,14 +66,7 @@ and open the template in the editor.
 
         </main>
 
-        <footer>
-
-            <div class="foot">
-                Clinique Médicale du Collège de Rosemont<br>
-                6400 16e Avenue, Montréal, QC H1X 2S9
-                <p id="copyright">© 2023 Collège de Rosemont  Cours : Applications Web 2 – Tous droits réservés</p>
-            </div>
-        </footer>      
+        <jsp:include page="pied.jsp"/>     
 
     </body>
 </html>

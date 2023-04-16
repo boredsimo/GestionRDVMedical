@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -12,43 +13,13 @@ and open the template in the editor.
 
         <link rel="stylesheet"  href="css/style.css" media="screen and (min-width: 481px)"/>
         <link rel="stylesheet"   href="css/style.css" media="screen and (max-width: 480px)"/>
-        <script src="js/inscription.js"></script>
+        <script src="js/tabPages.js"></script>
     </head>
     <body>
-        <header>
-            <div class="banniere">
-                <img id="logo" src="images/logo.png" alt="logo" />
-                <img id="rosemont" src="images/rosemont.png" alt="rosemont" />
-                <h1>Clinique Médicale du Collège de Rosemont</h1>
-
-            </div>
-            <div>
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Accueil</a></li>
-                        <li>
-                            <a
-                                href="infos.html">Infos
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a
-                                href="inscription.html">Inscription
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="connexion.html">Connexion
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-
-            </div>
-        </header>
+        <jsp:include page="enTete.jsp"/>
         <main class="page_principal">
 
-            <marquee> Bienvenue sur le site web de la Clinique Médicale du Collège de Rosemont</marquee>
+            <marquee> Bienvenue sur le site web de la Clinique MÃ©dicale du CollÃ¨ge de Rosemont</marquee>
 
             <section class="centrale">
 
@@ -64,9 +35,9 @@ and open the template in the editor.
                 <div id="Client" class="tabcontent">
                     <form action="" method="post">
                         Nom : <input type="text" name="nom" /> <br>
-                        Prénom : <input type="text" name="prenom" /> <br>
-                        Numéro d'assurance maladie : <input type="text" name="numAssuranceMaladie" /> <br>
-                        Numéro séquentiel : <input type="text" name="numSequentiel" /> <br>
+                        PrÃ©nom : <input type="text" name="prenom" /> <br>
+                        NumÃ©ro d'assurance maladie : <input type="text" name="numAssuranceMaladie" /> <br>
+                        NumÃ©ro sÃ©quentiel : <input type="text" name="numSequentiel" /> <br>
                         Date Naissance : <input type="date" id="dateNaissanceInput" value="1990-06-01" name="dateNaissance" /> <br>
                         Sexe : <input type="text" name="sexe" /> <br>
                         Email : <input type="email" name="email"/> <br>
@@ -79,11 +50,11 @@ and open the template in the editor.
                 <div id="Medecin" class="tabcontent">
                     <form action="" method="post">
                         Nom : <input type="text" name="nom" /> <br>
-                        Prénom : <input type="text" name="prenom" /> <br>
-                        Spécialité : <input type="text" name="Specialite" /> <br>
-                        Numéro de Medecin : <input type="text" name="numMedecin" /> <br>
-                        attentes en matière de facturation : <input type="text" name="attente" /> <br>
-                        Numéro de téléphone : <input type="text" name="numTel" /> <br>
+                        PrÃ©nom : <input type="text" name="prenom" /> <br>
+                        SpÃ©cialitÃ© : <input type="text" name="Specialite" /> <br>
+                        NumÃ©ro de Medecin : <input type="text" name="numMedecin" /> <br>
+                        attentes en matiÃ¨re de facturation : <input type="text" name="attente" /> <br>
+                        NumÃ©ro de tÃ©lÃ©phone : <input type="text" name="numTel" /> <br>
                         Clinique : <input type="text" name="numClinique" /> <br>
                         Email : <input type="email" name="email"/> <br>
                         Password : <input type="password" name="password"/> <br>
@@ -112,14 +83,7 @@ and open the template in the editor.
 
         </main>
 
-        <footer>
-
-            <div class="foot">
-                Clinique Médicale du Collège de Rosemont<br>
-                6400 16e Avenue, Montréal, QC H1X 2S9
-                <p id="copyright">© 2023 Collège de Rosemont  Cours : Applications Web 2 – Tous droits réservés</p>
-            </div>
-        </footer>      
+        <jsp:include page="pied.jsp"/>    
 
     </body>
 </html>
