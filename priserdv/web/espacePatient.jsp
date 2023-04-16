@@ -49,9 +49,9 @@ and open the template in the editor.
 
 
             <% if (session.getAttribute("nom") != null) {%>
-            <marquee> Bienvenue dans votre espace patient Mr/Mme <%= session.getAttribute("nom")%> de la Clinique Médicale du Collège de Rosemont.</marquee> 
+            <marquee> Bienvenue dans votre espace patient Mr/Mme <%= session.getAttribute("nom")%>.</marquee> 
                 <%} else {%>
-            <marquee> Bienvenue dans votre espace patient de la Clinique Médicale du Collège de Rosemont.</marquee>
+            <marquee> Bienvenue dans votre espace patient.</marquee>
                 <%}%>
 
             <section class="centrale">

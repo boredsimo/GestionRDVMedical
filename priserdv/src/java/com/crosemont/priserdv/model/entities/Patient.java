@@ -21,8 +21,9 @@ public class Patient implements Serializable {
     private Date dateNaissance;
     private String sexe;
     private String email;
-    private int admin;
+    private boolean admin;
     private int medecin_id;
+    private String password;
 
     public Patient() {
     }
@@ -77,7 +78,7 @@ public class Patient implements Serializable {
         return email;
     }
 
-    public int getAdmin() {
+    public boolean getAdmin() {
         return admin;
     }
 
@@ -117,12 +118,19 @@ public class Patient implements Serializable {
         this.email = email;
     }
 
-    public void setAdmin(int admin) {
+    public void setAdmin(boolean admin) {
         this.admin = admin;
     }
 
     public void setMedecin_id(int medecin_id) {
         this.medecin_id = medecin_id;
     }
-    
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
