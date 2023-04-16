@@ -4,12 +4,20 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
     <servlet>
-        <servlet-name>connexionController</servlet-name>
-        <servlet-class>com.crosemont.priserdv.model.controller.connexionController</servlet-class>
+        <servlet-name>connexionPatientController</servlet-name>
+        <servlet-class>com.crosemont.priserdv.model.controller.connexionPatientController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>espacePatientController</servlet-name>
+        <servlet-class>com.crosemont.priserdv.model.controller.espacePatientController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>connexionController</servlet-name>
-        <url-pattern>/connexionController</url-pattern>
+        <servlet-name>connexionPatientController</servlet-name>
+        <url-pattern>/connexionPatientController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>espacePatientController</servlet-name>
+        <url-pattern>/espacePatientController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

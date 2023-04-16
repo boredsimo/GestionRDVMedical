@@ -26,13 +26,13 @@ and open the template in the editor.
                 <h2>Inscription</h2>
                 <!-- Tab links -->
                 <div class="tab">
-                    <button class="tablinks" onclick="openInscriptionPage(event, 'Client')" id="defaultOpen">Client</button>
+                    <button class="tablinks" onclick="openInscriptionPage(event, 'Patient')" id="defaultOpen">Patient</button>
                     <button class="tablinks" onclick="openInscriptionPage(event, 'Medecin')">Medecin</button>
                     <button class="tablinks" onclick="openInscriptionPage(event, 'Clinique')">Clinique</button>
                 </div>
 
-                <!-- Tab content Client -->
-                <div id="Client" class="tabcontent">
+                <!-- Form Inscription Patient -->
+                <div id="Patient" class="tabcontent">
                     <form action="" method="post">
                         Nom : <input type="text" name="nom" /> <br>
                         PrÃ©nom : <input type="text" name="prenom" /> <br>
@@ -46,7 +46,7 @@ and open the template in the editor.
                     </form>
                 </div>
 
-                <!-- Tab content Medecin -->
+                <!-- Form Inscription Medecin -->
                 <div id="Medecin" class="tabcontent">
                     <form action="" method="post">
                         Nom : <input type="text" name="nom" /> <br>
@@ -62,7 +62,7 @@ and open the template in the editor.
                     </form>
                 </div>
 
-                <!-- Tab content Clinique -->
+                <!-- Form Inscription Clinique -->
                 <div id="Clinique" class="tabcontent">
                     <form action="" method="post">
                         Nom de la Clinique: <input type="text" name="nom" /> <br>

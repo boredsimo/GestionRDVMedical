@@ -26,17 +26,21 @@ and open the template in the editor.
                 <h2>Connexion</h2>
                 <!-- Tab links -->
                 <div class="tab">
-                    <button class="tablinks" onclick="openInscriptionPage(event, 'Client')" id="defaultOpen">Client</button>
+                    <button class="tablinks" onclick="openInscriptionPage(event, 'Patient')" id="defaultOpen">Patient</button>
                     <button class="tablinks" onclick="openInscriptionPage(event, 'Medecin')">Medecin</button>
                     <button class="tablinks" onclick="openInscriptionPage(event, 'Clinique')">Clinique</button>
                 </div>
 
                 <!-- Tab content Client -->
-                <div id="Client" class="tabcontent">
-                    <form action="" method="post">
+                <div id="Patient" class="tabcontent">
+                    <form action="connexionPatientController" method="post">
                         Email : <input type="email" name="email"/> <br>
                         Password : <input type="password" name="password"/> <br>
-                        <input type="submit" value="Se connecter en tant que Client"/>
+                        
+                         <% if (request.getAttribute("invalide") != null) {%>
+                         <p style="color:red;"><%=request.getAttribute("invalide")%></p>
+                <%}%>
+                        <input type="submit" value="Se connecter en tant que Patient"/>
                     </form>
                 </div>
 
@@ -51,7 +55,7 @@ and open the template in the editor.
 
                 <!-- Tab content Clinique -->
                 <div id="Clinique" class="tabcontent">
-                    <form action="" method="post">
+                    <form action="connexionController" method="post">
                         Email : <input type="email" name="email"/> <br>
                         Password : <input type="password" name="password"/> <br>
                         <input type="submit" value="Se connecter en tant que Clinique"/>

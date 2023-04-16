@@ -19,7 +19,7 @@ and open the template in the editor.
         <jsp:include page="enTete.jsp"/>
         <main class="page_principal">
 
-            <marquee> Bienvenue sur le site web de la Clinique Médicale du Collège de Rosemont</marquee>
+            <marquee> Bienvenue sur le site web de la Clinique Médicale du Collège de Rosemont.</marquee>
 
             <section class="centrale">
 
