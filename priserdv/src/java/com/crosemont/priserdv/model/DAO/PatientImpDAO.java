@@ -23,7 +23,7 @@ import java.util.logging.Logger;
 public class PatientImpDAO implements PatientDAO {
     
     public List<Patient> findAll() {
-        String SQL_SELECT = "select * from priseRdv.patient";
+        String SQL_SELECT = "select * from patient";
         List<Patient> listePatient = null;
         try {
             PreparedStatement ps = ConnexionBD.getConnection().prepareStatement(SQL_SELECT);
@@ -40,7 +40,7 @@ public class PatientImpDAO implements PatientDAO {
                 patient.setDateNaissance(result.getDate("dateNaissance"));
                 patient.setSexe(result.getString("sexe"));
                 patient.setEmail(result.getString("email"));
-                patient.setPassword(result.getString("password"));
+                patient.setPassword(result.getString("motdepasse"));
                 patient.setAdmin(result.getBoolean("admin"));
                 patient.setMedecin_id(result.getInt("medecin_id"));
                 listePatient.add(patient);
@@ -54,7 +54,7 @@ public class PatientImpDAO implements PatientDAO {
     };
 
     public List<Patient> findAllByDoctor(int id) {
-        String SQL_SELECT_BY_DOCTOR = "select * from priseRdv.patient where medecin_id = ?";
+        String SQL_SELECT_BY_DOCTOR = "select * from patient where medecin_id = ?";
         List<Patient> listePatient = null;
         try {
             PreparedStatement ps = ConnexionBD.getConnection().prepareStatement(SQL_SELECT_BY_DOCTOR);
@@ -76,7 +76,7 @@ public class PatientImpDAO implements PatientDAO {
     public Patient findById(int id) {
         Patient patient = null;
         try {
-            String SQL_SELECT_PAR_ID = "select * from priseRdv.patient where id = ?";
+            String SQL_SELECT_PAR_ID = "select * from patient where id = ?";
             PreparedStatement ps = ConnexionBD.getConnection().prepareStatement(SQL_SELECT_PAR_ID);
             ps.setInt(1, id);
             ResultSet result = ps.executeQuery();
@@ -91,7 +91,7 @@ public class PatientImpDAO implements PatientDAO {
                 patient.setDateNaissance(result.getDate("dateNaissance"));
                 patient.setSexe(result.getString("sexe"));
                 patient.setEmail(result.getString("email"));
-                patient.setPassword(result.getString("password"));
+                patient.setPassword(result.getString("motdepasse"));
                 patient.setAdmin(result.getBoolean("admin"));
                 patient.setMedecin_id(result.getInt("medecin_id"));
                 
@@ -110,7 +110,7 @@ public class PatientImpDAO implements PatientDAO {
         int nbLigne = 0;
         PreparedStatement ps;
         try {
-            String SQL_INSERT = "insert into priseRdv.patient(nom,prenom,codeAssuranceMaladie,numeroAssuranceMaladie,dateNaissance,sexe,email,motdepasse,admin,medecin_id) value(?,?,?,?,?,?,?,?,?,?)";
+            String SQL_INSERT = "insert into patient(nom,prenom,codeAssuranceMaladie,numeroAssuranceMaladie,dateNaissance,sexe,email,motdepasse,admin,medecin_id) value(?,?,?,?,?,?,?,?,?,?)";
             ps = ConnexionBD.getConnection().prepareStatement(SQL_INSERT);
 
             ps.setString(1, patient.getNom());
@@ -148,7 +148,7 @@ public class PatientImpDAO implements PatientDAO {
         int nbLigne = 0;
         PreparedStatement ps;
         try {
-            String SQL_DELETE = "delete from priseRdv.patient where id = ?";
+            String SQL_DELETE = "delete from patient where id = ?";
             ps = ConnexionBD.getConnection().prepareStatement(SQL_DELETE);
             ps.setInt(1, id);
 
@@ -169,7 +169,7 @@ public class PatientImpDAO implements PatientDAO {
         int nbLigne = 0;
         PreparedStatement ps;
         try {
-            String SQL_UPDATE = "update priseRdv.patient set nom =?, prenom =?, codeAssuranceMaladie = ?,numeroAssuranceMaladie =?, dateNaissance = ?,sexe =? ,email =?,motdepasse = ?, doctor_id = ? where id = ?";
+            String SQL_UPDATE = "update patient set nom =?, prenom =?, codeAssuranceMaladie = ?,numeroAssuranceMaladie =?, dateNaissance = ?,sexe =? ,email =?,motdepasse = ?, doctor_id = ? where id = ?";
             ps = ConnexionBD.getConnection().prepareStatement(SQL_UPDATE);
 
 		ps.setString(1, patient.getNom());
@@ -202,7 +202,7 @@ public class PatientImpDAO implements PatientDAO {
         Patient patient = null;
 
         try {
-            String SQL_CONNEXION_PAR_EMAIL_AND_PASSWORD = "select * from priseRdv.patient where email=? and password=?";
+            String SQL_CONNEXION_PAR_EMAIL_AND_PASSWORD = "select * from patient where email=? and motdepasse=?";
             PreparedStatement ps = ConnexionBD.getConnection().prepareStatement(SQL_CONNEXION_PAR_EMAIL_AND_PASSWORD);
             ps.setString(1, email);
             ps.setString(2, motDePasse);
@@ -221,7 +221,7 @@ public class PatientImpDAO implements PatientDAO {
                 patient.setDateNaissance(result.getDate("dateNaissance"));
                 patient.setSexe(result.getString("sexe"));
                 patient.setEmail(result.getString("email"));
-                patient.setPassword(result.getString("password"));
+                patient.setPassword(result.getString("motdepasse"));
                 patient.setAdmin(result.getBoolean("admin"));
                 patient.setMedecin_id(result.getInt("medecin_id"));
             }
@@ -238,7 +238,7 @@ public class PatientImpDAO implements PatientDAO {
         boolean isExist = false;
 
         try {
-            String SQL_CONNEXION_PAR_EMAIL = "select * from priseRdv.patient where email=?";
+            String SQL_CONNEXION_PAR_EMAIL = "select * from patient where email=?";
             PreparedStatement ps = ConnexionBD.getConnection().prepareStatement(SQL_CONNEXION_PAR_EMAIL);
             ps.setString(1, email);
             //On execute la requête et on récupère les résultats dans la requête
@@ -262,7 +262,7 @@ public class PatientImpDAO implements PatientDAO {
         boolean isExist = false;
 
         try {
-            String SQL_CONNEXION_PAR_NAM = "select * from priseRdv.patient where codeAssuranceMaladie=?";
+            String SQL_CONNEXION_PAR_NAM = "select * from patient where codeAssuranceMaladie=?";
             PreparedStatement ps = ConnexionBD.getConnection().prepareStatement(SQL_CONNEXION_PAR_NAM);
             ps.setString(1, nam);
             ResultSet result = ps.executeQuery();

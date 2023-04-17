@@ -5,6 +5,7 @@
  */
 package com.crosemont.priserdv.model.controller;
 
+import com.crosemont.priserdv.model.DAO.PatientImpDAO;
 import com.crosemont.priserdv.model.entities.Patient;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -21,32 +22,30 @@ import javax.servlet.http.HttpSession;
  */
 public class connexionPatientController extends HttpServlet {
 
-    private List<Patient> listeComptes;
-    //PatientImplDAO daoCompte = new PatientImplDAO();
+    private Patient unPatient;
+    PatientImpDAO daoPatient = new PatientImpDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         boolean connexion = false;
         PrintWriter out = response.getWriter();
-        // Recuperer l'email, le mot de passe et la valeur de Se souvenir
+
+        //Recuperer l'email, le mot de passe
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        //listeComptes = daoCompte.findByNumCompte(Integer.valueOf(password));
-        // Vérifier si l'email et mot de passe de l'utilisateur existent
-        //for (Patient patient : listeComptes) {
-        //    if(username.equals(patient.getNom_client()) && password.equals(String.valueOf(patient.getNumero_compte()))) {
-        //        connexion = true;
-        //        HttpSession session = request.getSession(true);
-        //        session.setAttribute("nom", patient.getNom_client());
-        //        request.getRequestDispatcher("espacePatientController").include(request, response);
-        //}
-        if (password.equals("allo")) {
-            connexion = true;
-            HttpSession session = request.getSession(true);
-            session.setAttribute("nom", "allo");
-            request.getRequestDispatcher("espacePatientController").include(request, response);
+        unPatient = daoPatient.isExist(email, password);
+        //Vérifier si l'email et mot de passe de l'utilisateur existent
+        //for (Patient patient : listePatients) {
+        if (unPatient != null) {
+            if (email.equals(unPatient.getEmail()) ) {//&& password.equals(unPatient.getPassword())
+                connexion = true;
+                HttpSession session = request.getSession(true);
+                session.setAttribute("nom", unPatient.getNom());
+                request.getRequestDispatcher("espacePatientController").include(request, response);
+            }
+
         }
 
         if (!connexion) {

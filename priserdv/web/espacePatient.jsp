@@ -56,15 +56,6 @@ and open the template in the editor.
 
             <section class="centrale">
 
-
-
-
-
-
-
-
-
-
             </section>
 
         </main>
