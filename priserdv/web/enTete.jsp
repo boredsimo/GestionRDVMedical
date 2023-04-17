@@ -29,19 +29,8 @@
                                 href="infos.jsp">Infos
                             </a>
                         </li>
-                        <li>
-                            <a
-                                href="inscription.jsp">Inscription
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="connexion.jsp">Connexion
-                            </a>
-                        </li>
                     </ul>
                 </nav>
-
             </div>
         </header>
     </body>

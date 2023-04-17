@@ -5,51 +5,33 @@
  */
 package com.crosemont.priserdv.model.controller;
 
-import com.crosemont.priserdv.model.DAO.PatientImpDAO;
-import com.crosemont.priserdv.model.entities.Patient;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author julie
  */
-public class connexionPatientController extends HttpServlet {
+public class espaceMedecinController extends HttpServlet {
 
-    private Patient unPatient;
-    PatientImpDAO daoPatient = new PatientImpDAO();
-
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        boolean connexion = false;
-        PrintWriter out = response.getWriter();
-
-        //Recuperer l'email, le mot de passe
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-
-        unPatient = daoPatient.isExist(email, password);
-        //Vérifier si l'email et mot de passe de l'utilisateur existent
-        //for (Patient patient : listePatients) {
-        if (unPatient != null) {
-            if (email.equals(unPatient.getEmail()) && password.equals(unPatient.getPassword())) {
-                connexion = true;
-                HttpSession session = request.getSession(true);
-                session.setAttribute("nom", unPatient.getNom());
-                request.getRequestDispatcher("espacePatientController").include(request, response);
-            }
-        }
-
-        if (!connexion) {
-            request.setAttribute("invalide", "L'email ou mot de passe est ne correspond pas à un compte Patient.");
-            request.getRequestDispatcher("connexion.jsp").include(request, response);
+        try (PrintWriter out = response.getWriter()) {
+            request.getRequestDispatcher("espacePatient.jsp").forward(request, response);
         }
     }
 

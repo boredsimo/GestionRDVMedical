@@ -22,8 +22,23 @@ and open the template in the editor.
             <marquee> Bienvenue sur le site web de la Clinique Médicale du Collège de Rosemont.</marquee>
 
             <section class="centrale">
+                
+                <div class="boiteConnexion"> 
+                    <h1>Connexion</h1>
+                    
+                    <h3><a href="connexionPatient.jsp">Patient</a></h3>
+                    <h3><a href="connexionMedecin.jsp">Medecin</a></h3>
+                    <h3><a>Clinique</a></h3>
+                </div>
+                <div class="boiteInscription"> 
+                    <h1>Inscription</h1>
+                    
+                    <h3><a>Patient</a></h3>
+                    <h3><a>Medecin</a></h3>
+                    <h3><a>Clinique</a></h3>
+                </div>
 
-
+                
             </section>
 
         </main>

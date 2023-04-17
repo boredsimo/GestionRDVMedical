@@ -5,11 +5,10 @@
  */
 package com.crosemont.priserdv.model.controller;
 
-import com.crosemont.priserdv.model.DAO.PatientImpDAO;
-import com.crosemont.priserdv.model.entities.Patient;
+import com.crosemont.priserdv.model.config.DAO.MedecinImpDAO;
+import com.crosemont.priserdv.model.entities.Medecin;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,10 +19,10 @@ import javax.servlet.http.HttpSession;
  *
  * @author julie
  */
-public class connexionPatientController extends HttpServlet {
+public class connexionMedecinController extends HttpServlet {
 
-    private Patient unPatient;
-    PatientImpDAO daoPatient = new PatientImpDAO();
+    private Medecin unMedecin;
+    MedecinImpDAO daoMedecin = new MedecinImpDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -35,14 +34,14 @@ public class connexionPatientController extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        unPatient = daoPatient.isExist(email, password);
+        unMedecin = daoMedecin.existsByEmailAndPassword(email, password);
         //Vérifier si l'email et mot de passe de l'utilisateur existent
         //for (Patient patient : listePatients) {
-        if (unPatient != null) {
-            if (email.equals(unPatient.getEmail()) && password.equals(unPatient.getPassword())) {
+        if (unMedecin != null) {
+            if (email.equals(unMedecin.getEmail())) {//&& password.equals(unPatient.getPassword())
                 connexion = true;
                 HttpSession session = request.getSession(true);
-                session.setAttribute("nom", unPatient.getNom());
+                session.setAttribute("nom", unMedecin.getNom());
                 request.getRequestDispatcher("espacePatientController").include(request, response);
             }
         }

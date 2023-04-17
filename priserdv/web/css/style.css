@@ -173,6 +173,27 @@ la largeur est 100%, la hauteur est 900px, avec marge extérieur en bas de 10px.
 }
 
 
+.boiteInscription {
+    display: inline-block;
+    text-align: center;
+    width: 40%;
+    height: 300px;
+    margin-left: 6%;
+    background-color: #9fd18e;
+    padding: 10px;
+    display:inline-block;
+}
+
+.boiteConnexion {
+    text-align: center;
+    width: 40%;
+    height: 300px;
+    margin-right: 6%;
+    background-color: #8bc7cc;
+    padding: 10px;
+    display:inline-block;
+}
+
 /* ------------ Étape #6 : zone pied --------------------------------------- */
 /* Le pied est hauteur de 50px, l'arrière plan est bleu foncé, la couleur du texte est blanc
 position : relative; bottomm: 0; left:0; right: 0 ;' */
