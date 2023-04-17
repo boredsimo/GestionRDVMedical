@@ -156,6 +156,31 @@ CREATE TABLE IF NOT EXISTS `priseRdv`.`specialisation`
     AUTO_INCREMENT = 1
     DEFAULT CHARACTER SET = utf8mb3;
 
+INSERT INTO `patient` (`nom`, `prenom`, `codeAssuranceMaladie`, `numeroAssuranceMaladie`, `dateNaissance`, `sexe`, `email`, `motdepasse`, `admin`, `medecin_id`)
+VALUES 
+('Smith', 'John', '12345', 6789, '1990-06-01', 'M', 'jsmith@gmail.com', 'password123', 0, NULL),
+('Doe', 'Jane', '67890', 1234, '1995-08-23', 'F', 'jdoe@gmail.com', 'mypassword', 0, NULL),
+('Lee', 'David', '54321', 9876, '1987-03-12', 'M', 'dlee@gmail.com', 'securepassword', 0, NULL),
+('Kim', 'Sophia', '24680', 1357, '2000-11-30', 'F', 'skim@gmail.com', 'password123', 0, NULL),
+('Chen', 'Ming', '13579', 2468, '1993-02-17', 'M', 'mchen@gmail.com', 'mypassword', 0, NULL);
+
+
+
+
+
+INSERT INTO `clinique` (`email`, `motdepasse`, `nomClinique`, `adresseRue`, `zip`, `pays`, `ville`, `province`)
+VALUES
+('admin@healthclinic.com', 'password123', 'Health Clinic', '123 Main St', 'M1M 1M1', 'Canada', 'Toronto', 'Ontario'),
+('admin@dentalclinic.com', 'securepassword', 'Dental Clinic', '456 Elm St', 'M2M 2M2', 'Canada', 'Toronto', 'Ontario'),
+('admin@wellnessclinic.com', 'mypassword', 'Wellness Clinic', '789 Maple St', 'M3M 3M3', 'Canada', 'Toronto', 'Ontario');
+
+INSERT INTO `medecin` (`nom`, `prenom`, `numeroMedecin`, `email`, `motdepasse`, `appointmentPrice`, `estDisponibleLundi`, `estDisponibleMardi`, `estDisponibleMercredi`, `estDisponibleJeudi`, `estDisponibleVendredi`, `estDisponibleSamedi`, `estDisponibleDimanche`, `specialisation_id`, `clinique_id`)
+VALUES
+('Johnson', 'Andrew', 123456, 'ajohnson@healthclinic.com', 'password123', 150.00, 1, 1, 0, 1, 0, 0, 0, 1, 1),
+('Garcia', 'Maria', 789012, 'mgarcia@dentalclinic.com', 'securepassword', 200.00, 0, 1, 1, 0, 0, 0, 0, 2, 2),
+('Li', 'Emily', 345678, 'eli@wellnessclinic.com', 'mypassword', 100.00, 1, 0, 0, 1, 1, 0, 0, 3, 3),
+('Park', 'David', 901234, 'dpark@healthclinic.com', 'password123', 175.00, 1, 0, 0, 1, 1, 0, 0, 3, 3)
+
 
 SET SQL_MODE = @OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS = @OLD_FOREIGN_KEY_CHECKS;
