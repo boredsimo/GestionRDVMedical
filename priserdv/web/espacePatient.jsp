@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Infos</title>
+        <title>Espace Patient</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -24,20 +24,20 @@ and open the template in the editor.
             <div>
                 <nav>
                     <ul>
-                        <li><a href="index.html">Accueil</a></li>
-                        <li class="active">
+                        <li><a href="espacePatient.jsp" class="active">Mes Rendez-vous</a></li>
+                        <li>
                             <a
-                                href="infos.html">Infos
+                                href="">Prendre un Rendez-vous
                             </a>
                         </li>
                         <li>
                             <a
-                                href="inscription.html">Inscription
+                                href="">Mon Compte
                             </a>
                         </li>
                         <li>
                             <a
-                                href="connexion.html">Connexion
+                                href="index.jsp">Deconnexion
                             </a>
                         </li>
                     </ul>
@@ -47,16 +47,15 @@ and open the template in the editor.
         </header>
         <main class="page_principal">
 
-            <marquee> Bienvenue sur le site web de la Clinique Médicale du Collège de Rosemont</marquee>
+
+            <% if (session.getAttribute("nom") != null) {%>
+            <marquee> Bienvenue dans votre espace patient Mr/Mme <%= session.getAttribute("nom")%>.</marquee> 
+                <%} else {%>
+            <marquee> Bienvenue dans votre espace patient.</marquee>
+                <%}%>
 
             <section class="centrale">
-                
-                6400 16e Avenue, Montréal, QC H1X 2S9<br>
-                >Voir les services offerts par la clinique<br>
-                >Voir les médecins exerçants dans la clinique<br>
-                >Voir les services offerts par la clinique<br>
-                >Voir les patients de la clinique selon leur médecin et les service<br>
-                
+
             </section>
 
         </main>
