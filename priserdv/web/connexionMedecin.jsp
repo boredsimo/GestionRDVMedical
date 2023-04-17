@@ -28,6 +28,9 @@ and open the template in the editor.
                     <form action="connexionMedecinController" method="post">
                         Email : <input type="email" name="email"/> <br>
                         Password : <input type="password" name="password"/> <br>
+                <% if (request.getAttribute("invalide") != null) {%>
+                         <p style="color:red;"><%=request.getAttribute("invalide")%></p>
+                <%}%>
                         <input type="submit" value="Se connecter en tant que Medecin"/>
                     </form>
                 </div>

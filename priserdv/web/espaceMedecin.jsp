@@ -24,10 +24,9 @@ and open the template in the editor.
             <div>
                 <nav>
                     <ul>
-                        <li><a href="espacePatient.jsp" class="active">Mes Rendez-vous</a></li>
                         <li>
                             <a
-                                href="">Consulter dossier d'un patient
+                                href="">Dossier de patient
                             </a>
                         </li>
                         <li>

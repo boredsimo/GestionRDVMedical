@@ -39,12 +39,12 @@ public class connexionPatientController extends HttpServlet {
         //Vérifier si l'email et mot de passe de l'utilisateur existent
         //for (Patient patient : listePatients) {
         if (unPatient != null) {
-            if (email.equals(unPatient.getEmail()) && password.equals(unPatient.getPassword())) {
+            
                 connexion = true;
                 HttpSession session = request.getSession(true);
                 session.setAttribute("nom", unPatient.getNom());
+                session.setAttribute("id", unPatient.getId());
                 request.getRequestDispatcher("espacePatientController").include(request, response);
-            }
         }
 
         if (!connexion) {

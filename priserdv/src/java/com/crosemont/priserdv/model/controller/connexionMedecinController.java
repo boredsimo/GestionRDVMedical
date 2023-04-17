@@ -38,17 +38,15 @@ public class connexionMedecinController extends HttpServlet {
         //Vérifier si l'email et mot de passe de l'utilisateur existent
         //for (Patient patient : listePatients) {
         if (unMedecin != null) {
-            if (email.equals(unMedecin.getEmail())) {//&& password.equals(unPatient.getPassword())
                 connexion = true;
                 HttpSession session = request.getSession(true);
                 session.setAttribute("nom", unMedecin.getNom());
-                request.getRequestDispatcher("espacePatientController").include(request, response);
-            }
+                request.getRequestDispatcher("espaceMedecinController").include(request, response);
         }
 
         if (!connexion) {
-            request.setAttribute("invalide", "L'email ou mot de passe est ne correspond pas à un compte Patient.");
-            request.getRequestDispatcher("connexion.jsp").include(request, response);
+            request.setAttribute("invalide", "L'email ou mot de passe ne correspond pas à un compte Medecin.");
+            request.getRequestDispatcher("connexionMedecin.jsp").include(request, response);
         }
     }
 

@@ -12,7 +12,7 @@
         <servlet-class>com.crosemont.priserdv.model.controller.espacePatientController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>connexionMedecin</servlet-name>
+        <servlet-name>connexionMedecinController</servlet-name>
         <servlet-class>com.crosemont.priserdv.model.controller.connexionMedecinController</servlet-class>
     </servlet>
     <servlet>
@@ -28,8 +28,8 @@
         <url-pattern>/espacePatientController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>connexionMedecin</servlet-name>
-        <url-pattern>/connexionMedecin</url-pattern>
+        <servlet-name>connexionMedecinController</servlet-name>
+        <url-pattern>/connexionMedecinController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>espaceMedecinController</servlet-name>
