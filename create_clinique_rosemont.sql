@@ -179,7 +179,7 @@ VALUES
 ('Johnson', 'Andrew', 123456, 'ajohnson@healthclinic.com', 'password123', 150.00, 1, 1, 0, 1, 0, 0, 0, 1, 1),
 ('Garcia', 'Maria', 789012, 'mgarcia@dentalclinic.com', 'securepassword', 200.00, 0, 1, 1, 0, 0, 0, 0, 2, 2),
 ('Li', 'Emily', 345678, 'eli@wellnessclinic.com', 'mypassword', 100.00, 1, 0, 0, 1, 1, 0, 0, 3, 3),
-('Park', 'David', 901234, 'dpark@healthclinic.com', 'password123', 175.00, 1, 0, 0, 1, 1, 0, 0, 3, 3)
+('Park', 'David', 901234, 'dpark@healthclinic.com', 'password123', 175.00, 1, 0, 0, 1, 0, 0, 0, 3, 3)
 
 
 SET SQL_MODE = @OLD_SQL_MODE;
