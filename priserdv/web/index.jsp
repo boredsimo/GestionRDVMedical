@@ -21,7 +21,7 @@ and open the template in the editor.
                 
                 
                 <% if (request.getAttribute("deconnecte") != null) {%>
-            <marquee><%= request.getAttribute("deconnecte")%>.</marquee> 
+            <marquee><%= request.getAttribute("deconnecte")%></marquee> 
                 <%} else {%>
             <marquee> Bienvenue sur le site web de la Clinique Médicale du Collège de Rosemont.</marquee>
                 <%}%>
