@@ -12,12 +12,28 @@
         <servlet-class>com.crosemont.priserdv.model.controller.espacePatientController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>connexionMedecin</servlet-name>
+        <servlet-name>connexionMedecinController</servlet-name>
         <servlet-class>com.crosemont.priserdv.model.controller.connexionMedecinController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>espaceMedecinController</servlet-name>
         <servlet-class>com.crosemont.priserdv.model.controller.espaceMedecinController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>connexionCliniqueController</servlet-name>
+        <servlet-class>com.crosemont.priserdv.model.controller.connexionCliniqueController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>espaceCliniqueController</servlet-name>
+        <servlet-class>com.crosemont.priserdv.model.controller.espaceCliniqueController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deconnexionController</servlet-name>
+        <servlet-class>com.crosemont.priserdv.model.controller.deconnexionController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>espaceAdminController</servlet-name>
+        <servlet-class>com.crosemont.priserdv.model.controller.espaceAdminController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>connexionPatientController</servlet-name>
@@ -28,12 +44,28 @@
         <url-pattern>/espacePatientController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>connexionMedecin</servlet-name>
-        <url-pattern>/connexionMedecin</url-pattern>
+        <servlet-name>connexionMedecinController</servlet-name>
+        <url-pattern>/connexionMedecinController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>espaceMedecinController</servlet-name>
         <url-pattern>/espaceMedecinController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>connexionCliniqueController</servlet-name>
+        <url-pattern>/connexionCliniqueController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>espaceCliniqueController</servlet-name>
+        <url-pattern>/espaceCliniqueController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deconnexionController</servlet-name>
+        <url-pattern>/deconnexionController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>espaceAdminController</servlet-name>
+        <url-pattern>/espaceAdminController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

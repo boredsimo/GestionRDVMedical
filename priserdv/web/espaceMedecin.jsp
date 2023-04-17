@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -24,10 +25,9 @@ and open the template in the editor.
             <div>
                 <nav>
                     <ul>
-                        <li><a href="espacePatient.jsp" class="active">Mes Rendez-vous</a></li>
                         <li>
                             <a
-                                href="">Consulter dossier d'un patient
+                                href="">Dossier de patient
                             </a>
                         </li>
                         <li>
@@ -65,14 +65,7 @@ and open the template in the editor.
 
         </main>
 
-        <footer>
-
-            <div class="foot">
-                Clinique Médicale du Collège de Rosemont<br>
-                6400 16e Avenue, Montréal, QC H1X 2S9
-                <p id="copyright">© 2023 Collège de Rosemont  Cours : Applications Web 2 – Tous droits réservés</p>
-            </div>
-        </footer>      
+        <jsp:include page="pied.jsp"/>    
 
     </body>
 </html>

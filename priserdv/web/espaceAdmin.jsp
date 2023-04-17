@@ -7,7 +7,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Espace Patient</title>
+        <title>Espace Administrateur</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -25,15 +25,14 @@ and open the template in the editor.
             <div>
                 <nav>
                     <ul>
-                        <li><a href="espacePatient.jsp" class="active">Mes Rendez-vous</a></li>
                         <li>
                             <a
-                                href="">Prendre un Rendez-vous
+                                href="">Comptes Utilisateurs
                             </a>
                         </li>
                         <li>
                             <a
-                                href="">Mon Compte
+                                href="">Creer un Compte
                             </a>
                         </li>
                         <li>
@@ -50,9 +49,9 @@ and open the template in the editor.
 
 
             <% if (session.getAttribute("nom") != null) {%>
-            <marquee> Bienvenue dans votre espace patient Mr/Mme <%= session.getAttribute("nom")%>.</marquee> 
+            <marquee> Bienvenue dans votre espace administrateur <%= session.getAttribute("nom")%>.</marquee> 
                 <%} else {%>
-            <marquee> Bienvenue dans votre espace patient.</marquee>
+            <marquee> Bienvenue dans votre espace administrateur.</marquee>
                 <%}%>
 
             <section class="centrale">
@@ -60,7 +59,6 @@ and open the template in the editor.
             </section>
 
         </main>
-
         <jsp:include page="pied.jsp"/>    
 
     </body>

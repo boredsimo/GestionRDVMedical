@@ -24,7 +24,7 @@ public class MedecinImpDAO implements MedecinDAO {
     private static final String SQL_SELECT_MEDECIN_PAR_ID = "select * from medecin where id = ?";
     private static final String SQL_SELECT_MEDECIN_PAR_NOM= "select * from medecin where nom = ?";
     private static final String SQL_SELECT_MEDECIN_PAR_NUMEROMED= "select * from medecin where numeroMedecin = ?";
-    private static final String SQL_CONNEXION_PAR_EMAIL_AND_PASSWORD = "select nom, prenom from medecin where email=? and motdepasse=?";
+    private static final String SQL_CONNEXION_PAR_EMAIL_AND_PASSWORD = "select id, nom from medecin where email=? and motdepasse=?";
     private static final String SQL_INSERT_MEDECIN= "insert into medecin(id,nom,prenom,numeroMedecin,email,motdepasse,appointmentPrice,estDisponibleLundi,"
             + "estDisponibleMardi,estDisponibleMercredi,estDisponibleJeudi,estDisponibleVendredi,estDisponibleSamedi,estDisponibleDimanche,specialisation_id,clinique_id) value(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     public List<Medecin> findAll() {
@@ -241,9 +241,8 @@ public class MedecinImpDAO implements MedecinDAO {
             while (result.next()) {
                 medecin = new Medecin();
                 
+                medecin.setId(result.getInt("id"));
                 medecin.setNom(result.getString("nom"));
-                medecin.setPrenom(result.getString("prenom"));
-                
             };
         } catch (SQLException ex) {
             Logger.getLogger(CliniqueImpDAO.class.getName()).log(Level.SEVERE, null, ex);

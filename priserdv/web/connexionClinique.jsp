@@ -7,7 +7,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Connexion - Medecin</title>
+        <title>Connexion - Clinique</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -23,17 +23,25 @@ and open the template in the editor.
 
             <section class="centrale">
 
-                <h2>Connexion - Medecin</h2>
+                <h2>Connexion - Clinique</h2>
+
+                <!-- Tab content Clinique -->
                 <div>
-                    <form action="connexionMedecinController" method="post">
+                    <form action="connexionCliniqueController" method="post">
                         Email : <input type="email" name="email"/> <br>
                         Password : <input type="password" name="password"/> <br>
-                <% if (request.getAttribute("invalide") != null) {%>
-                         <p style="color:red;"><%=request.getAttribute("invalide")%></p>
-                <%}%>
-                        <input type="submit" value="Se connecter en tant que Medecin"/>
+                        <% if (request.getAttribute("invalide") != null) {%>
+                        <p style="color:red;"><%=request.getAttribute("invalide")%></p>
+                        <%}%>
+                        <input type="submit" value="Se connecter en tant que Clinique"/>
                     </form>
                 </div>
+
+                <script>
+                    // Click sur client pour que le form client soit affiche par default
+                    document.getElementById("defaultOpen").click();
+                </script>
+            </section>
 
         </main>
 

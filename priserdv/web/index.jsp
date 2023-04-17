@@ -18,8 +18,16 @@ and open the template in the editor.
 
         <jsp:include page="enTete.jsp"/>
         <main class="page_principal">
-
+                
+                
+                <% if (request.getAttribute("deconnecte") != null) {%>
+            <marquee><%= request.getAttribute("deconnecte")%></marquee> 
+                <%} else {%>
             <marquee> Bienvenue sur le site web de la Clinique Médicale du Collège de Rosemont.</marquee>
+                <%}%>
+                
+                
+            
 
             <section class="centrale">
                 
@@ -28,7 +36,7 @@ and open the template in the editor.
                     
                     <h3><a href="connexionPatient.jsp">Patient</a></h3>
                     <h3><a href="connexionMedecin.jsp">Medecin</a></h3>
-                    <h3><a>Clinique</a></h3>
+                    <h3><a href="connexionClinique.jsp">Clinique</a></h3>
                 </div>
                 <div class="boiteInscription"> 
                     <h1>Inscription</h1>

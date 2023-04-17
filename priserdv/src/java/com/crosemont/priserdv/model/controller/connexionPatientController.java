@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author julie
+ * @author julien
  */
 public class connexionPatientController extends HttpServlet {
 
@@ -39,17 +39,22 @@ public class connexionPatientController extends HttpServlet {
         //Vérifier si l'email et mot de passe de l'utilisateur existent
         //for (Patient patient : listePatients) {
         if (unPatient != null) {
-            if (email.equals(unPatient.getEmail()) && password.equals(unPatient.getPassword())) {
                 connexion = true;
                 HttpSession session = request.getSession(true);
                 session.setAttribute("nom", unPatient.getNom());
-                request.getRequestDispatcher("espacePatientController").include(request, response);
-            }
+                session.setAttribute("id", unPatient.getId());
+                
+                if (unPatient.getAdmin()) {
+                    request.getRequestDispatcher("espaceAdminController").include(request, response);
+                } else {
+                    request.getRequestDispatcher("espacePatientController").include(request, response);
+                }
         }
 
         if (!connexion) {
             request.setAttribute("invalide", "L'email ou mot de passe est ne correspond pas à un compte Patient.");
-            request.getRequestDispatcher("connexion.jsp").include(request, response);
+            
+            request.getRequestDispatcher("connexionPatient.jsp").include(request, response);
         }
     }
 

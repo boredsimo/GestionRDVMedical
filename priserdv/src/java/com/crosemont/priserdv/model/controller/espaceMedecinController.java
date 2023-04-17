@@ -31,7 +31,7 @@ public class espaceMedecinController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            request.getRequestDispatcher("espacePatient.jsp").forward(request, response);
+            request.getRequestDispatcher("espaceMedecin.jsp").forward(request, response);
         }
     }
 

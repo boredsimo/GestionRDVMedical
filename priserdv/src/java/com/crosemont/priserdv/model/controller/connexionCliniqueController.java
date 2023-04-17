@@ -5,8 +5,8 @@
  */
 package com.crosemont.priserdv.model.controller;
 
-import com.crosemont.priserdv.model.config.DAO.MedecinImpDAO;
-import com.crosemont.priserdv.model.entities.Medecin;
+import com.crosemont.priserdv.model.config.DAO.CliniqueImpDAO;
+import com.crosemont.priserdv.model.entities.Clinique;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,13 +17,13 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author julie
+ * @author julien
  */
-public class connexionMedecinController extends HttpServlet {
+public class connexionCliniqueController extends HttpServlet {
 
-    private Medecin unMedecin;
-    MedecinImpDAO daoMedecin = new MedecinImpDAO();
-
+    private Clinique uneClinique;
+    CliniqueImpDAO daoClinique = new CliniqueImpDAO();
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -34,20 +34,20 @@ public class connexionMedecinController extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        unMedecin = daoMedecin.existsByEmailAndPassword(email, password);
+        uneClinique = daoClinique.existsByEmailAndPassword(email, password);
         //Vérifier si l'email et mot de passe de l'utilisateur existent
         //for (Patient patient : listePatients) {
-        if (unMedecin != null) {
+        if (uneClinique != null) {
                 connexion = true;
                 HttpSession session = request.getSession(true);
-                session.setAttribute("nom", unMedecin.getNom());
-                session.setAttribute("id", unMedecin.getId());
-                request.getRequestDispatcher("espaceMedecinController").include(request, response);
+                session.setAttribute("nom", uneClinique.getNomClinique());
+                session.setAttribute("id", uneClinique.getId());
+                request.getRequestDispatcher("espaceCliniqueController").include(request, response);
         }
 
         if (!connexion) {
-            request.setAttribute("invalide", "L'email ou mot de passe ne correspond pas à un compte Medecin.");
-            request.getRequestDispatcher("connexionMedecin.jsp").include(request, response);
+            request.setAttribute("invalide", "L'email ou mot de passe ne correspond pas à un compte Clinique.");
+            request.getRequestDispatcher("connexionClinique.jsp").include(request, response);
         }
     }
 
