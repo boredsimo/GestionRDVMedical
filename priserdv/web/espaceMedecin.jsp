@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Accueil</title>
+        <title>Espace Medecin</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -24,21 +24,25 @@ and open the template in the editor.
             <div>
                 <nav>
                     <ul>
-                        <li class="active"><a href="index.html">Accueil</a></li>
-
+                        <li><a href="espacePatient.jsp" class="active">Mes Rendez-vous</a></li>
                         <li>
                             <a
-                                href="infos.html">Infos
+                                href="">Consulter dossier d'un patient
                             </a>
                         </li>
                         <li>
                             <a
-                                href="inscription.html">Inscription
+                                href="">Mon horaire
                             </a>
                         </li>
                         <li>
                             <a
-                                href="connexion.html">Connexion
+                                href="">Mon Compte
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="index.jsp">Deconnexion
                             </a>
                         </li>
                     </ul>
@@ -48,10 +52,14 @@ and open the template in the editor.
         </header>
         <main class="page_principal">
 
-            <marquee> Bienvenue sur le site web de la Clinique Médicale du Collège de Rosemont</marquee>
+
+            <% if (session.getAttribute("nom") != null) {%>
+            <marquee> Bienvenue dans votre espace medecin Mr/Mme <%= session.getAttribute("nom")%>.</marquee> 
+                <%} else {%>
+            <marquee> Bienvenue dans votre espace medecin.</marquee>
+                <%}%>
 
             <section class="centrale">
-
 
             </section>
 

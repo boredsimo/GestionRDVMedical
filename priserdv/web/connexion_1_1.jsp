@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -15,37 +16,7 @@ and open the template in the editor.
         <script src="js/tabPages.js"></script>
     </head>
     <body>
-        <header>
-            <div class="banniere">
-                <img id="logo" src="images/logo.png" alt="logo" />
-                <img id="rosemont" src="images/rosemont.png" alt="rosemont" />
-                <h1>Clinique Médicale du Collège de Rosemont</h1>
-
-            </div>
-            <div>
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Accueil</a></li>
-                        <li>
-                            <a
-                                href="infos.html">Infos
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a
-                                href="inscription.html">Inscription
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="connexion.html">Connexion
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-
-            </div>
-        </header>
+        <jsp:include page="enTete.jsp"/>
         <main class="page_principal">
 
             <marquee> Bienvenue sur le site web de la Clinique Médicale du Collège de Rosemont</marquee>
@@ -55,17 +26,21 @@ and open the template in the editor.
                 <h2>Connexion</h2>
                 <!-- Tab links -->
                 <div class="tab">
-                    <button class="tablinks" onclick="openInscriptionPage(event, 'Client')" id="defaultOpen">Client</button>
+                    <button class="tablinks" onclick="openInscriptionPage(event, 'Patient')" id="defaultOpen">Patient</button>
                     <button class="tablinks" onclick="openInscriptionPage(event, 'Medecin')">Medecin</button>
                     <button class="tablinks" onclick="openInscriptionPage(event, 'Clinique')">Clinique</button>
                 </div>
 
                 <!-- Tab content Client -->
-                <div id="Client" class="tabcontent">
-                    <form action="" method="post">
+                <div id="Patient" class="tabcontent">
+                    <form action="connexionPatientController" method="post">
                         Email : <input type="email" name="email"/> <br>
                         Password : <input type="password" name="password"/> <br>
-                        <input type="submit" value="Se connecter en tant que Client"/>
+                        
+                         <% if (request.getAttribute("invalide") != null) {%>
+                         <p style="color:red;"><%=request.getAttribute("invalide")%></p>
+                <%}%>
+                        <input type="submit" value="Se connecter en tant que Patient"/>
                     </form>
                 </div>
 
@@ -80,7 +55,7 @@ and open the template in the editor.
 
                 <!-- Tab content Clinique -->
                 <div id="Clinique" class="tabcontent">
-                    <form action="" method="post">
+                    <form action="connexionController" method="post">
                         Email : <input type="email" name="email"/> <br>
                         Password : <input type="password" name="password"/> <br>
                         <input type="submit" value="Se connecter en tant que Clinique"/>
@@ -95,14 +70,7 @@ and open the template in the editor.
 
         </main>
 
-        <footer>
-
-            <div class="foot">
-                Clinique Médicale du Collège de Rosemont<br>
-                6400 16e Avenue, Montréal, QC H1X 2S9
-                <p id="copyright">© 2023 Collège de Rosemont  Cours : Applications Web 2 – Tous droits réservés</p>
-            </div>
-        </footer>      
+        <jsp:include page="pied.jsp"/>     
 
     </body>
 </html>
