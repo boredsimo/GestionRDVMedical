@@ -41,6 +41,7 @@ public class connexionMedecinController extends HttpServlet {
                 connexion = true;
                 HttpSession session = request.getSession(true);
                 session.setAttribute("nom", unMedecin.getNom());
+                session.setAttribute("id", unMedecin.getId());
                 request.getRequestDispatcher("espaceMedecinController").include(request, response);
         }
 
