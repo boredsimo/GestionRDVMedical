@@ -6,9 +6,12 @@
 package com.crosemont.priserdv.model.controller;
 
 import com.crosemont.priserdv.model.DAO.MedecinImpDAO;
+import com.crosemont.priserdv.model.DAO.PatientImpDAO;
 import com.crosemont.priserdv.model.entities.Medecin;
+import com.crosemont.priserdv.model.entities.Patient;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,13 +26,16 @@ public class connexionMedecinController extends HttpServlet {
 
     private Medecin unMedecin;
     MedecinImpDAO daoMedecin = new MedecinImpDAO();
+    PatientImpDAO daoPatient= new PatientImpDAO();
+    
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         boolean connexion = false;
         PrintWriter out = response.getWriter();
-
+        List<Patient> listPatient;
+        
         //Recuperer l'email, le mot de passe
         String email = request.getParameter("email");
         String password = request.getParameter("password");
@@ -42,6 +48,9 @@ public class connexionMedecinController extends HttpServlet {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("nom", unMedecin.getNom());
                 session.setAttribute("id", unMedecin.getId());
+                PatientImpDAO patientDao = new PatientImpDAO();
+                listPatient= patientDao.findAll();
+                request.setAttribute("listPatient", listPatient);
                 request.getRequestDispatcher("espaceMedecinController").include(request, response);
         }
 

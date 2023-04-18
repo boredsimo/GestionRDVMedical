@@ -13,7 +13,7 @@
     </head>
     <body>
         <header>
-            <div class="banniere">
+            <div class="banniere" >
                 <img id="logo" src="images/logo.png" alt="logo" />
                 <img id="rosemont" src="images/rosemont.png" alt="rosemont" />
                 <h1>Clinique Médicale du Collège de Rosemont</h1>
