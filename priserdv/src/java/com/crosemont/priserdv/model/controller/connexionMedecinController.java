@@ -5,7 +5,7 @@
  */
 package com.crosemont.priserdv.model.controller;
 
-import com.crosemont.priserdv.model.config.DAO.MedecinImpDAO;
+import com.crosemont.priserdv.model.DAO.MedecinImpDAO;
 import com.crosemont.priserdv.model.entities.Medecin;
 import java.io.IOException;
 import java.io.PrintWriter;

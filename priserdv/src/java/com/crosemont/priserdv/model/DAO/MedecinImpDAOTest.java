@@ -4,7 +4,7 @@
  */
 package com.crosemont.priserdv.model.DAO;
 
-import com.crosemont.priserdv.model.config.DAO.MedecinImpDAO;
+import com.crosemont.priserdv.model.DAO.MedecinImpDAO;
 import static com.crosemont.priserdv.model.DAO.CliniqueIMPdaotest.testCreate_Utilisateur;
 import com.crosemont.priserdv.model.entities.Clinique;
 import com.crosemont.priserdv.model.entities.Medecin;

@@ -29,7 +29,7 @@ and open the template in the editor.
                     <thead>
                         <tr>
                             <th></th>
-
+                            <% today = new java.util.Date();%>
                             <% for (int i = 0; i < 7; i += 1) {%>
                             <th><fmt:formatDate pattern = "E M/d" value = "<%= today%>" /></th>
                                 <% today = new java.util.Date((today.getTime()) + 60*60*24*1000);

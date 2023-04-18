@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.crosemont.priserdv.model.config.DAO;
+package com.crosemont.priserdv.model.DAO;
 
 import com.crosemont.priserdv.model.entities.Clinique;
 import com.crosemont.priserdv.model.entities.Medecin;
