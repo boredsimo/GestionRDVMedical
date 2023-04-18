@@ -15,41 +15,7 @@ and open the template in the editor.
         <link rel="stylesheet"   href="css/style.css" media="screen and (max-width: 480px)"/>
     </head>
     <body>
-        <header>
-            <div class="banniere">
-                <img id="logo" src="images/logo.png" alt="logo" />
-                <img id="rosemont" src="images/rosemont.png" alt="rosemont" />
-                <h1>Clinique Médicale du Collège de Rosemont</h1>
-
-            </div>
-            <div>
-                <nav>
-                    <ul>
-                        <li>
-                            <a
-                                href="">Dossier de patient
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="">Mon horaire
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="">Mon Compte
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="index.jsp">Deconnexion
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-
-            </div>
-        </header>
+        <jsp:include page="espaceMedecinEnTete.jsp"/>
         <main class="page_principal">
 
 
