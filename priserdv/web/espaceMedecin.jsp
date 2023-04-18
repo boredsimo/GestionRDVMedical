@@ -18,7 +18,7 @@ and open the template in the editor.
         <link rel="stylesheet"   href="css/style.css" media="screen and (max-width: 480px)"/>
         <script>
         function check() {
-        if (document.getElementById("myCheck").checked == true){
+        if (document.getElementById("myCheck").checked === true){
             document.getElementById("tr").style.backgroundColor = "gray";
             
         } else{

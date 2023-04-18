@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.crosemont.priserdv.model.entities.Clinique"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
@@ -5,6 +7,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+
 <html>
     <head>
         <title>Espace Patient</title>
@@ -33,7 +36,7 @@ and open the template in the editor.
                         </li>
                         <li>
                             <a
-                                href="">Mon Compte
+                                href="comptepatient">Mon Compte
                             </a>
                         </li>
                         <li>
@@ -56,6 +59,7 @@ and open the template in the editor.
                 <%}%>
 
             <section class="centrale">
+                
 
             </section>
 
