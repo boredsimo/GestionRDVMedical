@@ -4,7 +4,7 @@
  */
 package com.crosemont.priserdv.model.DAO;
 
-import com.crosemont.priserdv.model.config.DAO.CliniqueImpDAO;
+import com.crosemont.priserdv.model.DAO.CliniqueImpDAO;
 import com.crosemont.priserdv.model.entities.Clinique;
 import java.util.List;
 import java.util.Scanner;
