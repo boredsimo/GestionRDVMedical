@@ -41,7 +41,7 @@ and open the template in the editor.
                 <div class="boiteInscription"> 
                     <h1>Inscription</h1>
                     
-                    <h3><a>Patient</a></h3>
+                    <h3><a href="inscriptionPatient.jsp">Patient</a></h3>
                     <h3><a>Medecin</a></h3>
                     <h3><a>Clinique</a></h3>
                 </div>

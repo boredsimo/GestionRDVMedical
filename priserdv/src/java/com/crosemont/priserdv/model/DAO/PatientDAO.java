@@ -30,4 +30,6 @@ public interface PatientDAO {
     boolean isEmailExist(String email);
 
     boolean isNAMxist(String nam);
+    
+    boolean isNumExist(String num);
 }

@@ -278,4 +278,28 @@ public class PatientImpDAO implements PatientDAO {
         return isExist;
     }
 
+    @Override
+    public boolean isNumExist(String num) {
+        boolean isExist = false;
+
+        try {
+            String SQL_CONNEXION_PAR_CODE = "select * from patient where codeAssuranceMaladie=?";
+            PreparedStatement ps = ConnexionBD.getConnection().prepareStatement(SQL_CONNEXION_PAR_CODE);
+            ps.setString(1, num);
+            //On execute la requête et on récupère les résultats dans la requête
+            // dans ResultSet
+            ResultSet result = ps.executeQuery();
+            //on parcours ligne par ligne les resultats retournés
+            while (result.next()) {
+                isExist = true;
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PatientImpDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        ConnexionBD.closeConnection();
+        return isExist;
+    }
+
 }
