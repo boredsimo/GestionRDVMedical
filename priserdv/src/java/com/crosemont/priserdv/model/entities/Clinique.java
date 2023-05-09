@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author julie giguere
+ * @author Giguere julien
  */
 public class Clinique implements Serializable {
     private int id;

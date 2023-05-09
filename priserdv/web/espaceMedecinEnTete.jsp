@@ -1,7 +1,7 @@
 <%-- 
     Document   : espaceMedecinEnTete
     Created on : 17-Apr-2023, 9:16:38 PM
-    Author     : julie
+    Author     : Giguere Julien
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -29,7 +29,7 @@
                         </li>
                         <li>
                             <a
-                                href="espaceMedecinHoraire.jsp">Mon horaire
+                                href="EspaceMedecinHoraireController">Mon horaire
                             </a>
                         </li>
                         <li>

@@ -1,14 +1,16 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.time.ZoneId"%>
+<%@page import="java.time.LocalDate"%>
+<%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.util.Date"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<%-- 
+    Author     : Giguere Julien
+--%>
 <html>
     <head>
         <title>Espace Medecin</title>
@@ -23,17 +25,39 @@ and open the template in the editor.
         <main class="page_principal">
 
             <section class="centrale">
-                <%! Date today = new java.util.Date();%>
+                <%! Date today = new Date();%>
+                <%
+                    if (request.getAttribute("date") != null) {
+                        today = (Date)request.getAttribute("date");
+                    } else {
+                        today = new Date();
+                    }
+                %>
                 
+                
+                
+             
+                
+                
+                
+                
+                
+                <%! DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                    LocalDate uneLocalDate = today.toInstant()
+      .atZone(ZoneId.systemDefault())
+      .toLocalDate();
+                    String date = uneLocalDate.format(formatter);%>
+                <form action="EspaceMedecinHoraireController" method="post">
+                    Jour : <input type="date" id="dateHoraire" value="<fmt:formatDate pattern = "yyyy-MM-dd" value = "<%= today%>" />" name="dateHoraire" /> <br>
+                    <input type="submit" value="Afficher"/>
+                </form>
+
+
                 <table>
                     <thead>
                         <tr>
                             <th></th>
-                            <% today = new java.util.Date();%>
-                            <% for (int i = 0; i < 7; i += 1) {%>
-                            <th><fmt:formatDate pattern = "E M/d" value = "<%= today%>" /></th>
-                                <% today = new java.util.Date((today.getTime()) + 60*60*24*1000);
-                                }%>
+                            <th><fmt:formatDate pattern = "E d MMMMMMMM yyyy" value = "<%= today%>" /></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,14 +68,9 @@ and open the template in the editor.
                         <tr>
                             <td><strong><fmt:formatDate pattern = "H:mm" value = "<%= unePlaceHoraire%>" /></strong></td>
                             <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
                         </tr>
-                        <%  unePlaceHoraire = new Date( unePlaceHoraire.getTime() + 1000*60*30) ;       }%>
+                        <%  unePlaceHoraire = new Date(unePlaceHoraire.getTime() + 1000 * 60 * 30);
+                            }%>
                     </tbody>
                 </table>
 

@@ -10,7 +10,7 @@ import java.util.Date;
 
 /**
  *
- * @author julien
+ * @author Giguere julien
  */
 public class Rendezvous implements Serializable  {
     private int id;
@@ -70,7 +70,22 @@ public class Rendezvous implements Serializable  {
     public void setMedecin_id(int medecin_id) {
         this.medecin_id = medecin_id;
     }
-    
+
+    public String afficherTitreDesColonnes() {
+        String message = "";
+        message = String.format(" %-10s  %30s %45s %100s %10s %10s ", "Id", "heure", "raison", "precision", "patient_id",
+                "medecin_id");
+       message+="\n -------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
+       return message;
+    }
+  
+    @Override
+       public String toString() {
+         String message = "";
+       message = String.format(" %-10s  %30s %45s %100s %10s %10s ",this.id,this.heure, this.raison,this.precision,this.patient_id,
+                    this.medecin_id); 
+       return message;
+    }
     
     
 }

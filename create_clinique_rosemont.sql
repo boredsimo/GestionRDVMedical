@@ -158,6 +158,7 @@ CREATE TABLE IF NOT EXISTS `priseRdv`.`specialisation`
 
 INSERT INTO `patient` (`nom`, `prenom`, `codeAssuranceMaladie`, `numeroAssuranceMaladie`, `dateNaissance`, `sexe`, `email`, `motdepasse`, `admin`, `medecin_id`)
 VALUES 
+('Admin', 'Admin', '00000', 0000, '1990-06-01', 'M', 'admin@clinique.com', 'password123', 1, NULL),
 ('Smith', 'John', '12345', 6789, '1990-06-01', 'M', 'jsmith@gmail.com', 'password123', 0, NULL),
 ('Doe', 'Jane', '67890', 1234, '1995-08-23', 'F', 'jdoe@gmail.com', 'mypassword', 0, NULL),
 ('Lee', 'David', '54321', 9876, '1987-03-12', 'M', 'dlee@gmail.com', 'securepassword', 0, NULL),

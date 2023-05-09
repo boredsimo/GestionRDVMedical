@@ -7,7 +7,7 @@ package com.crosemont.priserdv.model.config;
 
 /**
  *
- * @author julien giguere
+ * @author Giguere julien
  */
 public interface ConfigBD {
     public final static String URL = "jdbc:mysql://127.0.0.1:3306/priserdv?serverTimezone=UTC&allowPublickeyRetrieval=true&useSSL=false";

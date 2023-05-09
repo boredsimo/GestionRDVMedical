@@ -2,12 +2,10 @@
 <%@page import="com.crosemont.priserdv.model.entities.Patient"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+<%-- 
+    Author     : Giguere Julien
+--%>
 <% ArrayList<Patient> listePatient = (ArrayList)request.getAttribute("listPatient");%>
--->
 <html>
     <head>
         <title>Espace Medecin</title>
