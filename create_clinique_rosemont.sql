@@ -136,7 +136,8 @@ CREATE TABLE IF NOT EXISTS `priseRdv`.`rendezvous`
         FOREIGN KEY (`medecin_id`)
             REFERENCES `priseRdv`.`medecin` (`id`)
             ON DELETE NO ACTION
-            ON UPDATE NO ACTION
+            ON UPDATE NO ACTION,
+    CONSTRAINT UQ_Heure_MedecinID UNIQUE(heure, medecin_id)
 )
     ENGINE = InnoDB
     AUTO_INCREMENT = 1

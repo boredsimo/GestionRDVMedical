@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.Types;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
@@ -26,8 +27,8 @@ public class RendezvousImpDAO implements RendezvousDAO{
 
     private static final String SQL_SELECT_RENDEZVOUS = "select * from rendezvous";
     private static final String SQL_INSERT_RENDEZVOUS= "insert into rendezvous(heure,raison,patient_id,medecin_id) value(?,?,?,?)";
-    private static final String SQL_SELECT_RENDEZVOUS_PAR_MEDECINID_AND_HEURE= "select * from rendezvous where medecin_id = ? and heure>? and heure<?";
-    
+    private static final String SQL_SELECT_RENDEZVOUS_PAR_MEDECINID_AND_DATE= "select * from rendezvous where medecin_id = ? and heure BETWEEN ? AND ?"; //and heure < ?
+   
     @Override
     public List<Rendezvous> findAll() {
          List<Rendezvous> list = null;
@@ -97,20 +98,15 @@ public class RendezvousImpDAO implements RendezvousDAO{
             
         try {
             PreparedStatement ps;
-            ps = ConnexionBD.getConnection().prepareStatement(SQL_SELECT_RENDEZVOUS_PAR_MEDECINID_AND_HEURE);
+            ps = ConnexionBD.getConnection().prepareStatement(SQL_SELECT_RENDEZVOUS_PAR_MEDECINID_AND_DATE);
             
-            
+            String pattern = "yyyy-MM-dd"; // HH:mm:ss
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
             ps.setInt(1, numero);
-            
-            ps.setTimestamp(2, new Timestamp(date.getTime()));
-            ps.setTimestamp(3, new Timestamp(date.getTime()+60*60*24));
-            
-            
-            //System.out.println(" result : " + ps.toString());
-            
-            
-            
-            
+           
+            ps.setString(2, simpleDateFormat.format(date) + " 00:00:00");
+            ps.setString(3, simpleDateFormat.format(date) + " 23:59:59");
+
             
             //On execute la requête et on récupère les résultats dans la requête 
             ResultSet result = ps.executeQuery();
@@ -123,7 +119,7 @@ public class RendezvousImpDAO implements RendezvousDAO{
                  System.out.println(" result : " + result.getInt("id"));
                 rendezvous.setId(result.getInt("id"));
                 Date uneDate=new Date(result.getTimestamp("heure").getTime()); 
-                rendezvous.setHeure(date);
+                rendezvous.setHeure(uneDate);
                 rendezvous.setRaison(result.getString("raison"));
                 rendezvous.setPrecision(result.getString("precision"));
                 rendezvous.setPatient_id(result.getInt("patient_id"));

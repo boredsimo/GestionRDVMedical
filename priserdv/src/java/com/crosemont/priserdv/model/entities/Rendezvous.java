@@ -6,6 +6,7 @@
 package com.crosemont.priserdv.model.entities;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -81,8 +82,10 @@ public class Rendezvous implements Serializable  {
   
     @Override
        public String toString() {
-         String message = "";
-       message = String.format(" %-10s  %30s %45s %100s %10s %10s ",this.id,this.heure, this.raison,this.precision,this.patient_id,
+            String message = "";
+            String pattern = "yyyy-MM-dd HH:mm:ss"; // HH:mm:ss
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+       message = String.format(" %-10s  %30s %45s %100s %10s %10s ",this.id, simpleDateFormat.format(this.heure), this.raison,this.precision,this.patient_id,
                     this.medecin_id); 
        return message;
     }
