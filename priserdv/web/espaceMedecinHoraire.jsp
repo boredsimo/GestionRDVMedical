@@ -16,7 +16,7 @@
 --%>
 <html>
     <head>
-        <title>Espace Medecin</title>
+        <title>Espace Medecin - Mon Horaire</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -89,7 +89,7 @@
                                                     if (unRDV.getPatient_id() == 1) {
                                                         //class="bg-info"
 %> 
-                                        <td >
+                                        <td class="bg-info">
                                             <!-- Affichage d'un rendez-vous attribué a aucun patient (patient admin id=1)-->
                                             <div style="display: inline;">
                                                 <span>Rendez-vous vide.</span>
@@ -122,7 +122,7 @@
                                             <!-- Affichage d'un rendez-vous attribué a un patient-->
                                             <div style="display: inline;">
                                                 <span>Patient id: <%=  unRDV.getPatient_id()%> : <%if (unRDV.getRaison() != null) {%><%=unRDV.getRaison()%><%}%>, <%if (unRDV.getPrecision() != null) {%><%=unRDV.getPrecision()%><%}%></span>
-                                                <form action="EspaceMedecinHoraireDeleteController" method="post" style="display: inline;">
+                                                <form action="EspaceMedecinHoraireDeleteController" method="post" style="float:right;display: inline;" onsubmit="return confirm('Voulez-vous vraiment supprimer ce rendez-vous?');">
                                                     <input type="hidden" id="rendezvousID" value="<%=unRDV.getId()%>" name="rendezvousID">
                                                     <input type="hidden" id="dateHoraire" value="<fmt:formatDate pattern = "yyyy-MM-dd" value = "<%= today%>" />" name="dateHoraire" />
                                                     <input type="hidden" id="dateHeure" value="<fmt:formatDate pattern='yyyy-MM-dd' value ='<%= today%>' /><fmt:formatDate pattern = "-HH-mm" value = "<%= unePlaceHoraire%>" />" name="dateHeure" />

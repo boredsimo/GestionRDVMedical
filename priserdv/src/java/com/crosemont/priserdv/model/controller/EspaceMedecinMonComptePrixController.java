@@ -5,34 +5,41 @@
  */
 package com.crosemont.priserdv.model.controller;
 
+import com.crosemont.priserdv.model.DAO.MedecinImpDAO;
+import com.crosemont.priserdv.model.entities.Medecin;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Giguere julien
+ * @author julie
  */
-public class espaceMedecinController extends HttpServlet {
+public class EspaceMedecinMonComptePrixController extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    Medecin unMedecin;
+    MedecinImpDAO daoMedecin = new MedecinImpDAO();
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            request.getRequestDispatcher("EspaceMedecinHoraireController").forward(request, response);
+
+        boolean result = false;
+        HttpSession session = request.getSession(true);
+        int medecin_id = (int) session.getAttribute("id");
+        
+        float prix = Float.parseFloat(request.getParameter("prix"));
+        result = daoMedecin.updatePrix(medecin_id, prix);
+
+        if (result) {
+            request.setAttribute("message", "Prix de consultation mis a jour!");
         }
+        
+        request.getRequestDispatcher("EspaceMedecinMonCompteController").include(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

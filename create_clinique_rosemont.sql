@@ -167,7 +167,10 @@ VALUES
 ('Chen', 'Ming', '13579', 2468, '1993-02-17', 'M', 'mchen@gmail.com', 'mypassword', 0, NULL);
 
 
-
+INSERT INTO `specialisation` (`titreSpecialisation`)
+VALUES ('Médecin généraliste'),
+('Dentiste'),
+('Chirurgie');
 
 
 INSERT INTO `clinique` (`email`, `motdepasse`, `nomClinique`, `adresseRue`, `zip`, `pays`, `ville`, `province`)

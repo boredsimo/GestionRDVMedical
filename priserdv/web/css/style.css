@@ -60,62 +60,50 @@ h2{
 }
 /*--------------------Étape #5 : menu de navigation et ses enfants------------------------------------------------------------------------- */
 /*l'arrière plan du menu navigation est bleu foncé */
-nav {
-    background-color:var(--bleu);
-}
+
 /*Le menu est affiché horisontale, avec une largeur de 160px, la couleur du texte est blanc, la marge intérieur est 10px
  le texte est centré */
-nav ul li{
-    display: inline-block;
-    width: 200px;
-
-    color:var(--blanc);
- 
-    padding:10px;
-    text-align: center;
-
-}
-
-
-nav ul li a {
-    
-    padding:10px;
-    
-}
 /* Quand on survole la souris sur menu, l'arrière plan change en rouge avec une bordure d'epaisseur 1px type solid
 et de couleur #eb1f4b, le bordure est arrondi à 10px, la couleur du text est blanc
 le curseur de la souris est pointé, la marge intérieur est 11px*/
-nav ul li:hover{
-
-    background-color:var(--vert);  
-    border: 1px solid var(--vert);
-    border-radius: 10px;
-    color: var(--blanc);
-    cursor: pointer;
-    white-space: normal;
-    padding: 11px;
-}
 /*la couleur du texte hyperlien est blanc, le texte est non décoré, 
 il devient surligné seulement quand on passe la souris "*/
-nav ul li a{
-    color: var(--blanc);
-    text-decoration:  none;	
-}
 
-nav ul li a:hover{
-
-    color: var(--blanc);
-    text-decoration: underline;	
-}
 /*Aucun style n'est appliqué pour le menu'  */
 
-ul li{
-    list-style: none;
+ul {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 80%;
+  text-align: justify;
+  background-color: transparent;
+  margin-left: 10px;
+  margin-right: 0px;
+  transition-duration: 0.4s;
+  list-style-type: none;
+  overflow: hidden;
+  display:flex;
 }
-ul li a{
-    text-decoration:  none;	
-    list-style: none;
-}
+li {
+  float: left;
+  border: 1px solid rgb(40, 92, 164);
+  display:flex;
+    }
+
+    li a {
+  display: block;
+  color: white;
+  background-color: rgb(40, 92, 164);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition-duration: 0.4s;
+    }
+
+    li a:hover {
+  background-color: white ; 
+    color: rgb(40, 92, 164);
+
+    }
 /* ------------ Étape #5 : zone centrale et ses enfants --------------------------------------- */
 /*la section principale, contient un image  informatique_prog.jpg en arrière plan
 l'image ne se repete pas, avec la propriété background-attachment: fixed et  background-size: cover;
@@ -237,6 +225,14 @@ div.droite{
  
 
 }
+.salut {
+  background-color: white;
+  height: 256;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+   rgba(0, 0, 0, 0.19);
+   
+}
 
 
 
@@ -275,9 +271,9 @@ article.trombi img {
     margin: 0 10px;
 }
 
-article.trombi ul li {
+/*article.trombi ul li {
     list-style-type: none;
-}
+}*/
 
 /* -------------Étape #10  Gestion des balises reliées aux tables (ne pas modifier cette section) ------ */
 input[type="submit"]{
@@ -295,8 +291,8 @@ input[type="submit"]{
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 20px;
-    padding-left: 20%;
-    padding-right: 20%;
+    padding-left: 12%;
+    padding-right: 12%;
 }
 /* The popup form - hidden by default */
 .form-popup {
