@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author julie
+ * @author Giguere julien
  */
 public class connexionMedecinController extends HttpServlet {
 

@@ -7,7 +7,7 @@ package com.crosemont.priserdv.model.DAO;
 
 /**
  *
- * @author julien
+ * @author Giguere julien
  */
 public class PatientImpDAOtest {
     

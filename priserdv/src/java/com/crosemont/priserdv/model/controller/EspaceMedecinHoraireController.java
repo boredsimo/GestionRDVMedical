@@ -4,26 +4,53 @@
  * and open the template in the editor.
  */
 package com.crosemont.priserdv.model.controller;
-
+import com.crosemont.priserdv.model.DAO.RendezvousImpDAO;
+import com.crosemont.priserdv.model.entities.Rendezvous;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Giguere julien
  */
-public class espaceAdminController extends HttpServlet {
+public class EspaceMedecinHoraireController extends HttpServlet {
 
+    private Rendezvous unRendezvous;
+    RendezvousImpDAO daoRendezvous = new RendezvousImpDAO();
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            request.getRequestDispatcher("espaceAdmin.jsp").forward(request, response);
+
+        HttpSession session = request.getSession(true);
+        int medecin_id = (int) session.getAttribute("id");
+        
+        Date uneDate = new Date();
+        if (request.getParameter("dateHoraire") != null) {
+            try {
+                String strDate = (String) request.getParameter("dateHoraire");
+                uneDate = new SimpleDateFormat("yyyy-MM-dd").parse(strDate);
+            } catch (ParseException ex) {
+                Logger.getLogger(EspaceMedecinHoraireController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        request.setAttribute("date", uneDate);
+        
+        List<Rendezvous> listeRendezvous = daoRendezvous.findByMedecinIdAndDate(medecin_id, new java.sql.Date(uneDate.getTime()));        
+        request.setAttribute("listeRendezvous", listeRendezvous);
+        
+        request.getRequestDispatcher("espaceMedecinHoraire.jsp").include(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

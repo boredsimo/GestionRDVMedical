@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author julie
+ * @author Giguere julien
  */
 public class espacePatientController extends HttpServlet {
 

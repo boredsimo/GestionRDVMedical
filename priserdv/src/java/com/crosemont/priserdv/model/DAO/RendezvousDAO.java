@@ -11,14 +11,14 @@ import java.util.List;
 
 /**
  *
- * @author julie
+ * @author Giguere julien
  */
 public interface RendezvousDAO {
     List<Rendezvous> findAll();
     Rendezvous findById(int id);
     Rendezvous findByHeure(Date date);
     List<Rendezvous> findByMedecinId(int numero);
-    List<Rendezvous> findByMedecinIdAndAujourdhui(int numero);
+    List<Rendezvous> findByMedecinIdAndDate(int numero, Date date);
     List<Rendezvous> findByMedecinIdAndSemaine(int numero);
     boolean delete(int id);
     boolean create(Rendezvous rendezvous);
