@@ -30,6 +30,7 @@ public class RendezvousImpDAO implements RendezvousDAO{
     private static final String SQL_INSERT_RENDEZVOUS= "insert into rendezvous(heure,raison,patient_id,medecin_id) value(?,?,?,?)";
     private static final String SQL_SELECT_RENDEZVOUS_PAR_MEDECINID_AND_DATE= "select * from rendezvous where medecin_id = ? and heure BETWEEN ? AND ?"; //and heure < ?
     private static final String SQL_UPDATE_RENDEZVOUS_PATIENTID="UPDATE rendezvous SET patient_id = ? WHERE id = ?";
+    
     @Override
     public List<Rendezvous> findAll() {
          List<Rendezvous> list = null;
@@ -204,7 +205,7 @@ public class RendezvousImpDAO implements RendezvousDAO{
 
     @Override
     public boolean updatePatientID(int rdv_id, int patient_id) {
-         boolean retour = false;
+        boolean retour = false;
         int nbLigne = 0;
         PreparedStatement ps;
         

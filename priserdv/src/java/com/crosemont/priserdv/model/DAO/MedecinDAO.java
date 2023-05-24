@@ -21,4 +21,5 @@ public interface MedecinDAO {
     boolean delete(int id);
     boolean create(Medecin medecin);
     boolean update(Medecin medecin);
+    boolean updatePrix(int medecinID, float prix);
 }
