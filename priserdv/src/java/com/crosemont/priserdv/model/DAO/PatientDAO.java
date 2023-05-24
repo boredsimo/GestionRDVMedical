@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  *
- * @author julien
+ * @author Giguere julien
  */
 public interface PatientDAO {
     List<Patient> findAll();

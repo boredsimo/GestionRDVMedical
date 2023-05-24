@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.crosemont.priserdv.model.config.DAO;
+package com.crosemont.priserdv.model.DAO;
 
 import com.crosemont.priserdv.model.entities.Clinique;
 import com.crosemont.priserdv.model.entities.Medecin;
@@ -27,6 +27,7 @@ public class MedecinImpDAO implements MedecinDAO {
     private static final String SQL_CONNEXION_PAR_EMAIL_AND_PASSWORD = "select id, nom from medecin where email=? and motdepasse=?";
     private static final String SQL_INSERT_MEDECIN= "insert into medecin(id,nom,prenom,numeroMedecin,email,motdepasse,appointmentPrice,estDisponibleLundi,"
             + "estDisponibleMardi,estDisponibleMercredi,estDisponibleJeudi,estDisponibleVendredi,estDisponibleSamedi,estDisponibleDimanche,specialisation_id,clinique_id) value(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    private static final String SQL_UPDATE_MEDECIN_PRIX="UPDATE medecin SET appointmentPrice = ? WHERE id = ?";
     public List<Medecin> findAll() {
         List<Medecin> list = null;
         
@@ -302,6 +303,28 @@ public class MedecinImpDAO implements MedecinDAO {
     @Override
     public boolean update(Medecin medecin) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean updatePrix(int medecinID, float prix) {
+        boolean retour = false;
+        int nbLigne = 0;
+        PreparedStatement ps;
+        
+        try {
+            ps = ConnexionBD.getConnection().prepareStatement(SQL_UPDATE_MEDECIN_PRIX);
+            
+            ps.setFloat(1, prix);
+            ps.setInt(2, medecinID);
+            nbLigne = ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(RendezvousImpDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (nbLigne > 0) {
+            retour = true;
+        }
+        ConnexionBD.closeConnection();
+        return retour;
     }
 
    

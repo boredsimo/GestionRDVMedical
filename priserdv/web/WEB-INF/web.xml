@@ -39,6 +39,30 @@
         <servlet-name>InscriptionPatientController</servlet-name>
         <servlet-class>com.crosemont.priserdv.model.controller.InscriptionPatientController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EspaceMedecinHoraireController</servlet-name>
+        <servlet-class>com.crosemont.priserdv.model.controller.EspaceMedecinHoraireController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EspcaeMedecinCreerRDVController</servlet-name>
+        <servlet-class>com.crosemont.priserdv.model.controller.EspcaeMedecinCreerRDVController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EspaceMedecinHoraireDeleteController</servlet-name>
+        <servlet-class>com.crosemont.priserdv.model.controller.EspaceMedecinHoraireDeleteController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EspaceMedecinHoraireAttributionController</servlet-name>
+        <servlet-class>com.crosemont.priserdv.model.controller.EspaceMedecinHoraireAttributionController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EspaceMedecinMonComptePrixController</servlet-name>
+        <servlet-class>com.crosemont.priserdv.model.controller.EspaceMedecinMonComptePrixController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EspaceMedecinMonCompteController</servlet-name>
+        <servlet-class>com.crosemont.priserdv.model.controller.EspaceMedecinMonCompteController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>connexionPatientController</servlet-name>
         <url-pattern>/connexionPatientController</url-pattern>
@@ -74,6 +98,30 @@
     <servlet-mapping>
         <servlet-name>InscriptionPatientController</servlet-name>
         <url-pattern>/InscriptionPatientController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EspaceMedecinHoraireController</servlet-name>
+        <url-pattern>/EspaceMedecinHoraireController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EspcaeMedecinCreerRDVController</servlet-name>
+        <url-pattern>/EspcaeMedecinCreerRDVController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EspaceMedecinHoraireDeleteController</servlet-name>
+        <url-pattern>/EspaceMedecinHoraireDeleteController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EspaceMedecinHoraireAttributionController</servlet-name>
+        <url-pattern>/EspaceMedecinHoraireAttributionController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EspaceMedecinMonComptePrixController</servlet-name>
+        <url-pattern>/EspaceMedecinMonComptePrixController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EspaceMedecinMonCompteController</servlet-name>
+        <url-pattern>/EspaceMedecinMonCompteController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

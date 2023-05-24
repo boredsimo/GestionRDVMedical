@@ -10,7 +10,7 @@ import java.util.Date;
 
 /**
  *
- * @author julien giguere
+ * @author Giguere julien
  */
 public class Patient implements Serializable {
     private int id;

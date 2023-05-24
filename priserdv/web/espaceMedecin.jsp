@@ -2,12 +2,10 @@
 <%@page import="com.crosemont.priserdv.model.entities.Patient"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+<%-- 
+    Author     : Giguere Julien
+--%>
 <% ArrayList<Patient> listePatient = (ArrayList)request.getAttribute("listPatient");%>
--->
 <html>
     <head>
         <title>Espace Medecin</title>
@@ -28,41 +26,7 @@ and open the template in the editor.
             </script>
     </head>
     <body>
-        <header>
-            <div class="banniere">
-                <img id="logo" src="images/logo.png" alt="logo" />
-                <img id="rosemont" src="images/rosemont.png" alt="rosemont" />
-                <h1>Clinique Médicale du Collège de Rosemont</h1>
-
-            </div>
-            <div>
-                <nav>
-                    <ul>
-                        <li>
-                            <a
-                                href="">Dossier de patient
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="">Mon horaire
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="">Mon Compte
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="index.jsp">Deconnexion
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-
-            </div>
-        </header>
+        <jsp:include page="espaceMedecinEnTete.jsp"/>
         <main class="page_principal">
 
 

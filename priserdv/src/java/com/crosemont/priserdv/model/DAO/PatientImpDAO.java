@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author julie
+ * @author Giguere julien
  */
 public class PatientImpDAO implements PatientDAO {
     

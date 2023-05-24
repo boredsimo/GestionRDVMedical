@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package com.crosemont.priserdv.model.config.DAO;
+package com.crosemont.priserdv.model.DAO;
 
 import com.crosemont.priserdv.model.entities.Clinique;
 import com.crosemont.priserdv.model.entities.Medecin;
@@ -21,4 +21,5 @@ public interface MedecinDAO {
     boolean delete(int id);
     boolean create(Medecin medecin);
     boolean update(Medecin medecin);
+    boolean updatePrix(int medecinID, float prix);
 }

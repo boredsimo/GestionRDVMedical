@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.crosemont.priserdv.model.config.DAO;
+package com.crosemont.priserdv.model.DAO;
 
 import com.crosemont.priserdv.model.entities.Clinique;
 import com.crosemont.priserdv.model.singleton.ConnexionBD;
@@ -31,7 +31,6 @@ public class CliniqueImpDAO implements CliniqueDAO{
     public List<Clinique> findAll() {
         
         List<Clinique> list = null;
-        
 
             //Initialise la requête préparée basée sur la connexion
             // la requête SQL passé en argument pour construire l'objet preparedStatement
@@ -66,7 +65,6 @@ public class CliniqueImpDAO implements CliniqueDAO{
             Logger.getLogger(CliniqueImpDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
                
-        
         //Fermeture de toutes les ressources ouvertes
         ConnexionBD.closeConnection();
         return list;

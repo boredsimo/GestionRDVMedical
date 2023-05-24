@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author julie
+ * @author Giguere julien
  */
 public class espaceAdminController extends HttpServlet {
 

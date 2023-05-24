@@ -136,7 +136,8 @@ CREATE TABLE IF NOT EXISTS `priseRdv`.`rendezvous`
         FOREIGN KEY (`medecin_id`)
             REFERENCES `priseRdv`.`medecin` (`id`)
             ON DELETE NO ACTION
-            ON UPDATE NO ACTION
+            ON UPDATE NO ACTION,
+    CONSTRAINT UQ_Heure_MedecinID UNIQUE(heure, medecin_id)
 )
     ENGINE = InnoDB
     AUTO_INCREMENT = 1
@@ -158,6 +159,7 @@ CREATE TABLE IF NOT EXISTS `priseRdv`.`specialisation`
 
 INSERT INTO `patient` (`nom`, `prenom`, `codeAssuranceMaladie`, `numeroAssuranceMaladie`, `dateNaissance`, `sexe`, `email`, `motdepasse`, `admin`, `medecin_id`)
 VALUES 
+('Admin', 'Admin', '00000', 0000, '1990-06-01', 'M', 'admin@clinique.com', 'password123', 1, NULL),
 ('Smith', 'John', '12345', 6789, '1990-06-01', 'M', 'jsmith@gmail.com', 'password123', 0, NULL),
 ('Doe', 'Jane', '67890', 1234, '1995-08-23', 'F', 'jdoe@gmail.com', 'mypassword', 0, NULL),
 ('Lee', 'David', '54321', 9876, '1987-03-12', 'M', 'dlee@gmail.com', 'securepassword', 0, NULL),
@@ -165,7 +167,10 @@ VALUES
 ('Chen', 'Ming', '13579', 2468, '1993-02-17', 'M', 'mchen@gmail.com', 'mypassword', 0, NULL);
 
 
-
+INSERT INTO `specialisation` (`titreSpecialisation`)
+VALUES ('Médecin généraliste'),
+('Dentiste'),
+('Chirurgie');
 
 
 INSERT INTO `clinique` (`email`, `motdepasse`, `nomClinique`, `adresseRue`, `zip`, `pays`, `ville`, `province`)
