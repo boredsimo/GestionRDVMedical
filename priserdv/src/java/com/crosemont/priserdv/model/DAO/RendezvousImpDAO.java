@@ -29,7 +29,7 @@ public class RendezvousImpDAO implements RendezvousDAO{
     private static final String SQL_DELETE_RENDEZVOUS_PAR_ID= "delete from rendezvous where id = ?";
     private static final String SQL_INSERT_RENDEZVOUS= "insert into rendezvous(heure,raison,patient_id,medecin_id) value(?,?,?,?)";
     private static final String SQL_SELECT_RENDEZVOUS_PAR_MEDECINID_AND_DATE= "select * from rendezvous where medecin_id = ? and heure BETWEEN ? AND ?"; //and heure < ?
-   
+    private static final String SQL_UPDATE_RENDEZVOUS_PATIENTID="UPDATE rendezvous SET patient_id = ? WHERE id = ?";
     @Override
     public List<Rendezvous> findAll() {
          List<Rendezvous> list = null;
@@ -200,6 +200,28 @@ public class RendezvousImpDAO implements RendezvousDAO{
     @Override
     public boolean update(Rendezvous rendezvous) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean updatePatientID(int rdv_id, int patient_id) {
+         boolean retour = false;
+        int nbLigne = 0;
+        PreparedStatement ps;
+        
+        try {
+            ps = ConnexionBD.getConnection().prepareStatement(SQL_UPDATE_RENDEZVOUS_PATIENTID);
+            
+            ps.setInt(1, patient_id);
+            ps.setInt(2, rdv_id);
+            nbLigne = ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(RendezvousImpDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (nbLigne > 0) {
+            retour = true;
+        }
+        ConnexionBD.closeConnection();
+        return retour;
     }
     
 }

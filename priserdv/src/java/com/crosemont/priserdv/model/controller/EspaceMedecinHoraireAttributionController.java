@@ -21,11 +21,11 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author julien giguere
+ * @author julie
  */
-public class EspaceMedecinHoraireDeleteController extends HttpServlet {
+public class EspaceMedecinHoraireAttributionController extends HttpServlet {
 
-    Rendezvous unRendezvous;
+  Rendezvous unRendezvous;
     RendezvousImpDAO daoRendezvous = new RendezvousImpDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -43,12 +43,13 @@ public class EspaceMedecinHoraireDeleteController extends HttpServlet {
         boolean result = false;
 
         int id = Integer.parseInt(request.getParameter("rendezvousID"));
-        result = daoRendezvous.delete(id);
+        int patient_id = Integer.parseInt(request.getParameter("patientID"));
+        result = daoRendezvous.updatePatientID(id, patient_id);
 
         String pattern = "H:mm dd-MM-yyyy";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         if (result) {
-            request.setAttribute("message", "Rendez-vous supprimé avec succès (" + simpleDateFormat.format(date1) + ").");
+            request.setAttribute("message", "Rendez-vous attribué avec succès (" + simpleDateFormat.format(date1) + ").");
         }
         request.setAttribute("date", date1);
         request.getRequestDispatcher("EspaceMedecinHoraireController").include(request, response);
