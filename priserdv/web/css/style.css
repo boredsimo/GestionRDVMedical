@@ -295,8 +295,8 @@ input[type="submit"]{
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 20px;
-    padding-left: 20%;
-    padding-right: 20%;
+    padding-left: 12%;
+    padding-right: 12%;
 }
 /* The popup form - hidden by default */
 .form-popup {

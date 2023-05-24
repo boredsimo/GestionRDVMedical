@@ -31,7 +31,6 @@ public class CliniqueImpDAO implements CliniqueDAO{
     public List<Clinique> findAll() {
         
         List<Clinique> list = null;
-        
 
             //Initialise la requête préparée basée sur la connexion
             // la requête SQL passé en argument pour construire l'objet preparedStatement
@@ -66,7 +65,6 @@ public class CliniqueImpDAO implements CliniqueDAO{
             Logger.getLogger(CliniqueImpDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
                
-        
         //Fermeture de toutes les ressources ouvertes
         ConnexionBD.closeConnection();
         return list;
