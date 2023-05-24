@@ -126,7 +126,7 @@ la largeur est 100%, la hauteur est 900px, avec marge extérieur en bas de 10px.
   background-repeat: no-repeat;
    background-attachment: fixed;
     width: 100%;
-    height: 900px;
+    /*height: 900px;*/
     margin-bottom:10px;
     background-size: cover;
 }
@@ -198,7 +198,7 @@ la largeur est 100%, la hauteur est 900px, avec marge extérieur en bas de 10px.
 /* Le pied est hauteur de 50px, l'arrière plan est bleu foncé, la couleur du texte est blanc
 position : relative; bottomm: 0; left:0; right: 0 ;' */
 .foot{	
-height: 50px;
+height: 70px;
  background-color:var(--bleu);  
  color: var(--blanc);
 border-color:#080808;
@@ -290,6 +290,64 @@ input[type="submit"]{
 
 }
 
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+
          
 /* ------------ Étape #11 : zone pour les appareils mobiles (ne pas modifier cette section)---------------------------------- */
 /*Dans le cadre d'utilisation d'un appareil mobile, 
@@ -315,3 +373,6 @@ dont  la taille  minimum de l'ecran est 940px la largeur du menu  est 20%  */
         width: 20%;
     }
 }
+
+
+

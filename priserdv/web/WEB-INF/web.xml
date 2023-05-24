@@ -47,6 +47,10 @@
         <servlet-name>EspcaeMedecinCreerRDVController</servlet-name>
         <servlet-class>com.crosemont.priserdv.model.controller.EspcaeMedecinCreerRDVController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EspaceMedecinHoraireDeleteController</servlet-name>
+        <servlet-class>com.crosemont.priserdv.model.controller.EspaceMedecinHoraireDeleteController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>connexionPatientController</servlet-name>
         <url-pattern>/connexionPatientController</url-pattern>
@@ -90,6 +94,10 @@
     <servlet-mapping>
         <servlet-name>EspcaeMedecinCreerRDVController</servlet-name>
         <url-pattern>/EspcaeMedecinCreerRDVController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EspaceMedecinHoraireDeleteController</servlet-name>
+        <url-pattern>/EspaceMedecinHoraireDeleteController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

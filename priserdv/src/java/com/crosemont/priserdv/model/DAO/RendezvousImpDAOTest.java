@@ -36,9 +36,10 @@ public class RendezvousImpDAOTest {
         //testCreate();
         //testFindAll();
         
-        testCreateSpecificDate();
+        //testCreateSpecificDate();
         
         //testFindfindByMedecinIdAndDate();
+        testDeleteRendezvousParID();
     }
 
     public static void testFindAll() {
@@ -127,8 +128,6 @@ public class RendezvousImpDAOTest {
     private static void testFindfindByMedecinIdAndDate() {
         System.out.println("FindfindByMedecinIdAndDate");
         RendezvousImpDAO instance = new RendezvousImpDAO();
-        // List<Utilisateur> expResult = null;
-        
         
         Calendar today = Calendar.getInstance();
         today.set(Calendar.HOUR_OF_DAY, 0); // same for minutes and seconds
@@ -139,8 +138,6 @@ public class RendezvousImpDAOTest {
         
         System.out.println(today.toString());
         
-        
-        
         List<Rendezvous> result = instance.findByMedecinIdAndDate(1, new java.sql.Date(today.getTimeInMillis()));
         // assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -148,5 +145,21 @@ public class RendezvousImpDAOTest {
         for (Rendezvous rendezvous : result) {
             System.out.println(rendezvous.toString());
         }
+    }
+    
+    private static void testDeleteRendezvousParID() {
+        System.out.println("FindfindByMedecinIdAndDate");
+        RendezvousImpDAO instance = new RendezvousImpDAO();
+
+        boolean result = instance.delete(2);
+        // assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        if (result) {
+            System.out.println("reussi");
+        } else {
+            System.out.println("echec");
+        }
+ 
+    
     }
 }
