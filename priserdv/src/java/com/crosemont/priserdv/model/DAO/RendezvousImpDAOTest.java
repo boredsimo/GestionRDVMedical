@@ -40,7 +40,8 @@ public class RendezvousImpDAOTest {
         
         //testFindfindByMedecinIdAndDate();
         //testDeleteRendezvousParID();
-        testUpdateRendezvousPatientID();
+        //testUpdateRendezvousPatientID();
+        testUpdateRendezvousRaisonPrecision();
     }
 
     public static void testFindAll() {
@@ -167,6 +168,20 @@ public class RendezvousImpDAOTest {
         RendezvousImpDAO instance = new RendezvousImpDAO();
 
         boolean result = instance.updatePatientID(356, 2);
+        // assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        if (result) {
+            System.out.println("reussi");
+        } else {
+            System.out.println("echec");
+        }
+    }
+    
+        private static void testUpdateRendezvousRaisonPrecision() {
+        System.out.println("FindfindByMedecinIdAndDate");
+        RendezvousImpDAO instance = new RendezvousImpDAO();
+
+        boolean result = instance.updateRaisonPrecision(36, "aaa", "bbb");
         // assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         if (result) {

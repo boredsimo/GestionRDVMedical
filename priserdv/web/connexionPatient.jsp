@@ -22,7 +22,7 @@
 
                 <h2>Connexion - Patient</h2>
                 <div>
-                    <form action="connexionPatientController" method="post">
+                    <form action="connexionPatientController" method="post"style="text-align: center;" >
                         Email : <input type="email" name="email"/> <br>
                         Password : <input type="password" name="password"/> <br>
                         

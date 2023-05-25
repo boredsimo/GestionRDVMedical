@@ -63,6 +63,10 @@
         <servlet-name>EspaceMedecinMonCompteController</servlet-name>
         <servlet-class>com.crosemont.priserdv.model.controller.EspaceMedecinMonCompteController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EspaceMedecinHoraireModifierController</servlet-name>
+        <servlet-class>com.crosemont.priserdv.model.controller.EspaceMedecinHoraireModifierController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>connexionPatientController</servlet-name>
         <url-pattern>/connexionPatientController</url-pattern>
@@ -122,6 +126,10 @@
     <servlet-mapping>
         <servlet-name>EspaceMedecinMonCompteController</servlet-name>
         <url-pattern>/EspaceMedecinMonCompteController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EspaceMedecinHoraireModifierController</servlet-name>
+        <url-pattern>/EspaceMedecinHoraireModifierController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

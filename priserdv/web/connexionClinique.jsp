@@ -25,7 +25,7 @@
 
                 <!-- Tab content Clinique -->
                 <div>
-                    <form action="connexionCliniqueController" method="post">
+                    <form action="connexionCliniqueController" method="post" style="text-align: center;" >
                         Email : <input type="email" name="email"/> <br>
                         Password : <input type="password" name="password"/> <br>
                         <% if (request.getAttribute("invalide") != null) {%>

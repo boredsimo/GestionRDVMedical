@@ -24,7 +24,7 @@
                 <h2>Inscription - Patient</h2>
                 
                 <div>
-                    <form action="InscriptionPatientController" method="post">
+                    <form action="InscriptionPatientController" method="post" style="text-align: center;" >
                         Nom : <input type="text" name="nom" /> <br>
                         Prénom : <input type="text" name="prenom" /> <br>
                         Numéro d'assurance maladie : <input type="text" name="numAssuranceMaladie" /> <br>
