@@ -302,4 +302,53 @@ public class PatientImpDAO implements PatientDAO {
         return isExist;
     }
 
+    @Override
+    public List<Patient> findAllByRendezvousAndMedecinID(int id) {
+        String SQL_SELECT = 
+                "SELECT patient.id,"
+                + "patient.nom,"
+                + "patient.prenom,"
+                + "patient.codeAssuranceMaladie,"
+                + "patient.numeroAssuranceMaladie,"
+                + "patient.dateNaissance,"
+                + "patient.sexe,"
+                + "patient.email,"
+                + "patient.motdepasse,"
+                + "patient.admin,"
+                + "patient.medecin_id FROM priserdv.patient, priserdv.rendezvous where rendezvous.patient_id = patient.id  and rendezvous.medecin_id = ? and NOT rendezvous.patient_id = 1 group by priserdv.patient.id";
+    
+        List<Patient> listePatient = null;
+        try {
+            PreparedStatement ps = ConnexionBD.getConnection().prepareStatement(SQL_SELECT);
+            ps.setInt(1, id);
+            
+            ResultSet result = ps.executeQuery();
+            listePatient = new ArrayList<>();
+
+            while (result.next()) {
+                Patient patient = new Patient();
+                patient.setId(result.getInt("id"));
+                patient.setNom(result.getString("nom"));
+                patient.setPrenom(result.getString("prenom"));
+                patient.setCodeAssuranceMaladie(result.getString("codeAssuranceMaladie"));
+                patient.setNumeroAssuranceMaladie(result.getInt("numeroAssuranceMaladie"));
+                patient.setDateNaissance(result.getDate("dateNaissance"));
+                patient.setSexe(result.getString("sexe"));
+                patient.setEmail(result.getString("email"));
+                patient.setPassword(result.getString("motdepasse"));
+                patient.setAdmin(result.getBoolean("admin"));
+                patient.setMedecin_id(result.getInt("medecin_id"));
+                listePatient.add(patient);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PatientImpDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ConnexionBD.closeConnection();
+        return listePatient;
+    
+    
+    
+    }
+
 }

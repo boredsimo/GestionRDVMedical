@@ -17,7 +17,7 @@
                  rgba(0, 0, 0, 0.19); border-radius: 0%; ">
                 <ul>
                     <li><img src="images/logo.png" alt="Logo" style="border-radius:0%;" width="47px" height="47px"></li>
-                    <li><a href="">Dossier de patient</a></li>
+                    <li><a href="EspaceMedecinDossiersController">Dossier de patient</a></li>
                     <li><a href="EspaceMedecinHoraireController">Mon horaire</a></li>
                     <li><a href="EspaceMedecinMonCompteController">Mon Compte</a></li>
                     <li><a href="index.jsp">Deconnexion</a></li>
