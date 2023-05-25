@@ -25,5 +25,6 @@ public interface RendezvousDAO {
     boolean create(Rendezvous rendezvous);
     boolean update(Rendezvous rendezvous);
     boolean updatePatientID(int rdv_id, int patient_id);
+    List<Rendezvous> findByMedecinDispo();
     boolean updateRaisonPrecision(int rdv_id, String raison, String precision);
 }

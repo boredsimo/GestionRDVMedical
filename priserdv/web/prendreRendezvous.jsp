@@ -17,7 +17,6 @@
 --%>
 
 <% List<Rendezvous> list= (List<Rendezvous>)session.getAttribute("listDispo");
-   List<Medecin> listmed=(List<Medecin>) session.getAttribute("listMed") ;
 %>
 
 <html>
@@ -39,7 +38,7 @@
                     <ul>
                         <img src="images/logo.png" alt="Logo" style="border-radius:0%;" width="47px" height="47px">
                         <li style="box-sizing: border-box;  border-radius:0%;display: block;"><a href="espacePatient.jsp" class="active">Mes Rendez-vous</a></li>
-                        <li style="box-sizing: border-box;  border-radius:0%;display: block;"><a href="controllerVersMesRendezvous">Prendre un Rendez-vous</a></li>
+                        <li style="box-sizing: border-box;  border-radius:0%;display: block;"><a href="">Prendre un Rendez-vous</a></li>
                         <li style="box-sizing: border-box;  border-radius:0%; display: block;"><a href="comptepatient">Mon Compte</a></li>
                         <li style="box-sizing: border-box;  border-radius:0%;display: block;"><a href="deconnexionController">Deconnexion</a></li>
                         <img id="rosemont" src="images/rosemont.png" alt="rosemont" />
@@ -50,7 +49,7 @@
         </header>
         <main class="page_principal">
             
-        <!--    <%! Date today = new Date();%>
+            <%! Date today = new Date();%>
                 <%
                     if (request.getAttribute("date") != null) {
                         today = (Date) request.getAttribute("date");
@@ -140,7 +139,7 @@
 
             </section>
 
-        </main> -->
+        </main>
                 
 
         <jsp:include page="pied.jsp"/>    

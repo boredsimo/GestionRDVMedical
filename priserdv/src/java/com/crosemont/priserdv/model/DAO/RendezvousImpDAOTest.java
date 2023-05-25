@@ -40,8 +40,12 @@ public class RendezvousImpDAOTest {
         //testFindfindByMedecinIdAndDate();
         //testDeleteRendezvousParID();
         //testUpdateRendezvousPatientID();
+<<<<<<< priserdv/src/java/com/crosemont/priserdv/model/DAO/RendezvousImpDAOTest.java
+        testFindRDVDISPO();
+=======
         //testUpdateRendezvousRaisonPrecision();
         testFindByPatientId();
+>>>>>>> priserdv/src/java/com/crosemont/priserdv/model/DAO/RendezvousImpDAOTest.java
     }
 
     public static void testFindAll() {
@@ -177,6 +181,14 @@ public class RendezvousImpDAOTest {
         }
     }
     
+<<<<<<< priserdv/src/java/com/crosemont/priserdv/model/DAO/RendezvousImpDAOTest.java
+    
+    public static void testFindRDVDISPO(){
+        System.out.println("findAll");
+        RendezvousImpDAO instance = new RendezvousImpDAO();
+        
+        List<Rendezvous> result = instance.findByMedecinDispo();
+=======
         private static void testUpdateRendezvousRaisonPrecision() {
         System.out.println("UpdateRendezvousRaisonPrecision");
         RendezvousImpDAO instance = new RendezvousImpDAO();
@@ -196,6 +208,7 @@ public class RendezvousImpDAOTest {
         RendezvousImpDAO instance = new RendezvousImpDAO();
         // List<Utilisateur> expResult = null;
         List<Rendezvous> result = instance.findByPatientId(2);
+>>>>>>> priserdv/src/java/com/crosemont/priserdv/model/DAO/RendezvousImpDAOTest.java
         // assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         System.out.println(result.get(0).afficherTitreDesColonnes());
