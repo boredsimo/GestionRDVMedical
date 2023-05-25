@@ -76,6 +76,9 @@
                 <%} else {%>
                 <h1 style="color: black"> Bienvenue dans votre espace patient.</h1>
                 <%}%>
+                                <% if (request.getAttribute("message") != null) {%>
+                <div style='text-align: center; background-color: green;'><%= request.getAttribute("message")%></div> 
+                <%}%>
                 
                 <div class="grid-child">
                         <div>
@@ -110,8 +113,8 @@
                                             <form action="espcaceClientReserverHoraire" method="post" style="display: inline;">
                                                     <input type="hidden" id="rendezvousID" value="<%=rdv.getId()%>" name="rendezvousID">
                                                     
-                                                    <input type="text" id="patientID" value="" placeholder="patient ID" name="patientID" />
-                                                    <button class="btn btn-success" type="submit" >Attribuer</button>
+                                                    
+                                                    <button class="btn btn-success" type="submit" >Réserver Rendez-vous</button>
                                                 </form>
                                             
                                             
