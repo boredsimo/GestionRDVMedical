@@ -29,7 +29,6 @@ public class RendezvousImpDAOTest {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        long Localdate;
         // TODO code application logic here
 
         //testFindAll();

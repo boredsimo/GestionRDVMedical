@@ -29,6 +29,7 @@
         <main class="page_principal">
 
             <section class="centrale">
+                <h2>Vos Rendez-vous</h2>
                 <%! Date today = new Date();%>
                 <%
                     if (request.getAttribute("date") != null) {
@@ -122,7 +123,7 @@
                                             <!-- Affichage d'un rendez-vous attribué a un patient-->
                                             <div style="display: inline;">
                                                 <span>Patient <%=  unRDV.getPatient_id()%> : </span>
-                                                <form action="EspaceMedecinHoraireModifierController" method="post" >
+                                                <form action="EspaceMedecinHoraireModifierController" method="post">
                                                     <input type="hidden" id="rendezvousID" value="<%=unRDV.getId()%>" name="rendezvousID">
                                                     <input type="hidden" id="dateHoraire" value="<fmt:formatDate pattern = "yyyy-MM-dd" value = "<%= today%>" />" name="dateHoraire" />
                                                     <input type="hidden" id="dateHeure" value="<fmt:formatDate pattern='yyyy-MM-dd' value ='<%= today%>' /><fmt:formatDate pattern = "-HH-mm" value = "<%= unePlaceHoraire%>" />" name="dateHeure" />

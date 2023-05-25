@@ -49,7 +49,7 @@ public class EspaceMedecinHoraireModifierController extends HttpServlet {
         String pattern = "H:mm dd-MM-yyyy";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         if (result) {
-            request.setAttribute("message", "Rendez-vous attribué avec succès (" + simpleDateFormat.format(date1) + ").");
+            request.setAttribute("message", "Rendez-vous modifié avec succès (" + simpleDateFormat.format(date1) + ").");
         }
         request.setAttribute("date", date1);
         request.getRequestDispatcher("EspaceMedecinHoraireController").include(request, response);
