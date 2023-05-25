@@ -1,3 +1,6 @@
+<%@page import="com.crosemont.priserdv.model.entities.Clinique"%>
+<%@page import="com.crosemont.priserdv.model.entities.Rendezvous"%>
+<%@page import="java.util.List"%>
 <%@page import="com.crosemont.priserdv.model.entities.Patient"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
@@ -7,6 +10,8 @@
     Author     : Giguere Julien
 --%>
 <% Patient unPatient = (Patient) request.getAttribute("unPatient"); %>
+<% List<Rendezvous> listeRendezvous = (List<Rendezvous>) request.getAttribute("listeRendezvous"); %>
+<% List<Clinique> listeClinique = (List<Clinique>) request.getAttribute("listeClinique"); %>
 
 <html>
     <title>Espace Medecin - Dossier de Patient</title>
@@ -32,6 +37,22 @@
                     <h3> Numero Assurance Maladie : <%= unPatient.getNumeroAssuranceMaladie()%></h3>
                     <h3> Email : <%= unPatient.getEmail()%></h3>
                     
+                    
+                    <h3> Rendez-vous :</h3>
+                    <br>
+                    <% for (Rendezvous unRDV : listeRendezvous) {
+                        
+                        Clinique cliniqueTrouvee = new Clinique();
+                        for (Clinique uneClinique : listeClinique) {
+                            if (unRDV.getId() == uneClinique.getId()) {
+                                cliniqueTrouvee = uneClinique;
+                            }
+                        }
+                        %>
+                    <h4><strong><fmt:formatDate pattern = "yyyy-MM-dd H:mm" value = "<%= unRDV.getHeure() %>"/></strong>: <%= cliniqueTrouvee.getNomClinique()%>, Dr. <%= cliniqueTrouvee.getEmail() %></h4>
+                    <h4><%= cliniqueTrouvee.getAddresseRue()%>, <%= cliniqueTrouvee.getVille() %>, <%= cliniqueTrouvee.getProvince() %>, <%= cliniqueTrouvee.getZip() %></h4>
+                    <br>
+                    <% }%>
                 </div>
                 
                 

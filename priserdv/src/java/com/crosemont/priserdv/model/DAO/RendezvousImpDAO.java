@@ -31,7 +31,7 @@ public class RendezvousImpDAO implements RendezvousDAO{
     private static final String SQL_SELECT_RENDEZVOUS_PAR_MEDECINID_AND_DATE= "select * from rendezvous where medecin_id = ? and heure BETWEEN ? AND ?"; //and heure < ?
     private static final String SQL_UPDATE_RENDEZVOUS_PATIENTID="UPDATE rendezvous SET patient_id = ? WHERE id = ?";
     private static final String SQL_FIND_RDV_DISPO="select rendezvous.id, rendezvous.heure, rendezvous.raison,rendezvous.patient_id,rendezvous.medecin_id "
-            + "from medecin,rendezvous where medecin.id=rendezvous.medecin_id and medecin.specialisation_id=1; ";
+            + "from medecin,rendezvous where medecin.id=rendezvous.medecin_id and medecin.specialisation_id=1;";
     private static final String SQL_UPDATE_RENDEZVOUS_RAISON_PRECISION="UPDATE rendezvous SET `raison` = ?,`precision`= ? WHERE id = ?";
     private static final String SQL_SELECT_RENDEZVOUS_PAR_PATIENT_ID= "select * from rendezvous where patient_id = ?";
     

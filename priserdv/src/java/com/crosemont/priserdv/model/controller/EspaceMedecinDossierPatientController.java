@@ -5,8 +5,10 @@
  */
 package com.crosemont.priserdv.model.controller;
 
+import com.crosemont.priserdv.model.DAO.CliniqueImpDAO;
 import com.crosemont.priserdv.model.DAO.PatientImpDAO;
 import com.crosemont.priserdv.model.DAO.RendezvousImpDAO;
+import com.crosemont.priserdv.model.entities.Clinique;
 import com.crosemont.priserdv.model.entities.Patient;
 import com.crosemont.priserdv.model.entities.Rendezvous;
 import java.io.IOException;
@@ -20,7 +22,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author julie
+ * @author Giguere Julien
  */
 public class EspaceMedecinDossierPatientController extends HttpServlet {
 
@@ -30,6 +32,9 @@ public class EspaceMedecinDossierPatientController extends HttpServlet {
     List<Rendezvous> listeRendezvous;
     RendezvousImpDAO daoRendezvous = new RendezvousImpDAO();
     
+    List<Clinique> listeClinique;
+    CliniqueImpDAO daoClinique = new CliniqueImpDAO();
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -37,9 +42,13 @@ public class EspaceMedecinDossierPatientController extends HttpServlet {
         int patient_id = Integer.parseInt(request.getParameter("patient_id"));
         unPatient = daoPatient.findById(patient_id);
         
+        listeRendezvous = daoRendezvous.findByPatientId(patient_id);
                 
         request.setAttribute("unPatient", unPatient);
+        request.setAttribute("listeRendezvous", listeRendezvous);
         
+        listeClinique = daoClinique.findLocationsByPatientID(patient_id);
+        request.setAttribute("listeClinique", listeClinique);
 
         request.getRequestDispatcher("espaceMedecinDossierPatient.jsp").include(request, response);
     }

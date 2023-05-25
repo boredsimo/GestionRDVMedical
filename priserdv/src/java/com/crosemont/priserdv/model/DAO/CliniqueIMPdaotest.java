@@ -25,8 +25,9 @@ public class CliniqueIMPdaotest {
         //testFindByName();
         //testFindByEmail();
         //testFindByAddresseRue();
-        testCreate_Utilisateur();
-        testFindAll();
+        //testCreate_Utilisateur();
+        //testFindAll();
+        testFindAllPatientID();
         //testExistsByEmailAndPassword();
     }
     public static void testFindAll() {
@@ -34,6 +35,19 @@ public class CliniqueIMPdaotest {
         CliniqueImpDAO instance = new CliniqueImpDAO();
         // List<Utilisateur> expResult = null;
         List<Clinique> result = instance.findAll();
+        // assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        System.out.println(result.get(0).afficherTitreDesColonnes());
+        for (Clinique utilisateur : result) {
+            System.out.println(utilisateur.toString());
+        }
+    }
+    
+    public static void testFindAllPatientID() {
+        System.out.println("findAllPatientID");
+        CliniqueImpDAO instance = new CliniqueImpDAO();
+        // List<Utilisateur> expResult = null;
+        List<Clinique> result = instance.findLocationsByPatientID(2);
         // assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         System.out.println(result.get(0).afficherTitreDesColonnes());

@@ -23,5 +23,5 @@ public interface CliniqueDAO {
     boolean create(Clinique clinique);
     //boolean create(Clinique clinique, String nomRole);
     boolean update(Clinique clinique);
-    
+    List<Clinique> findLocationsByPatientID(int patient_id);
 }
