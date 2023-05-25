@@ -13,39 +13,22 @@
     </head>
     <body>
         <header>
-            <div class="banniere">
-                <img id="logo" src="images/logo.png" alt="logo" />
-                <img id="rosemont" src="images/rosemont.png" alt="rosemont" />
-                <h1>Clinique Médicale du Collège de Rosemont</h1>
+            <div class="container-fluid" style="background-color: white; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+                 rgba(0, 0, 0, 0.19); border-radius: 0%; ">
+                <ul>
+                    <li><img src="images/logo.png" alt="Logo" style="border-radius:0%;" width="47px" height="47px"></li>
+                    <li><a href="EspaceMedecinDossiersController">Dossier de patient</a></li>
+                    <li><a href="EspaceMedecinHoraireController">Mon horaire</a></li>
+                    <li><a href="EspaceMedecinMonCompteController">Mon Compte</a></li>
+                    <li><a href="index.jsp">Deconnexion</a></li>
+                    <div class="container-fluid" style="outline-color: red ;outline: red"><img src="images/rosemont.png" alt="alt" style="float: right;"/></div>
+
+                </ul>
 
             </div>
-            <div>
-                <nav>
-                    <ul>
-                        <li>
-                            <a
-                                href="">Dossier de patient
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="EspaceMedecinHoraireController">Mon horaire
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="EspaceMedecinMonCompteController">Mon Compte
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="index.jsp">Deconnexion
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
 
-            </div>
+
+
         </header>
     </body>
 </html>

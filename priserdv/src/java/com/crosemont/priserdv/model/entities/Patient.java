@@ -6,6 +6,7 @@
 package com.crosemont.priserdv.model.entities;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -132,5 +133,23 @@ public class Patient implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+    public String afficherTitreDesColonnes() {
+        String message = "";
+        message = String.format(" %-10s  %45s %45s %45s %10s %10s %45s %45s %45s %5s %10s", "id", "nom", "prenom", "codeAssuranceMaladie", "numeroAssuranceMaladie",
+                "dateNaissance", "sexe", "email", "motdepasse", "admin", "medecin_id");
+       message+="\n -------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
+       return message;
+    }
+  
+    @Override
+       public String toString() {
+            String message = "";
+            String pattern = "yyyy-MM-dd"; // HH:mm:ss
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+       message = String.format(" %-10s  %45s %45s %45s %10s %10s %45s %45s %45s %5s %10s", this.id, this.nom, this.prenom , this.codeAssuranceMaladie, this.numeroAssuranceMaladie,
+                simpleDateFormat.format(this.dateNaissance), this.sexe, this.email, this.password, this.admin, this.medecin_id); 
+       return message;
     }
 }

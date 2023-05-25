@@ -29,7 +29,6 @@ public class RendezvousImpDAOTest {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        long Localdate;
         // TODO code application logic here
 
         //testFindAll();
@@ -41,7 +40,12 @@ public class RendezvousImpDAOTest {
         //testFindfindByMedecinIdAndDate();
         //testDeleteRendezvousParID();
         //testUpdateRendezvousPatientID();
+<<<<<<< priserdv/src/java/com/crosemont/priserdv/model/DAO/RendezvousImpDAOTest.java
         testFindRDVDISPO();
+=======
+        //testUpdateRendezvousRaisonPrecision();
+        testFindByPatientId();
+>>>>>>> priserdv/src/java/com/crosemont/priserdv/model/DAO/RendezvousImpDAOTest.java
     }
 
     public static void testFindAll() {
@@ -150,7 +154,7 @@ public class RendezvousImpDAOTest {
     }
     
     private static void testDeleteRendezvousParID() {
-        System.out.println("FindfindByMedecinIdAndDate");
+        System.out.println("DeleteRendezvousParID");
         RendezvousImpDAO instance = new RendezvousImpDAO();
 
         boolean result = instance.delete(2);
@@ -164,7 +168,7 @@ public class RendezvousImpDAOTest {
     }
     
     private static void testUpdateRendezvousPatientID() {
-        System.out.println("FindfindByMedecinIdAndDate");
+        System.out.println("UpdateRendezvousPatientID");
         RendezvousImpDAO instance = new RendezvousImpDAO();
 
         boolean result = instance.updatePatientID(356, 2);
@@ -177,12 +181,34 @@ public class RendezvousImpDAOTest {
         }
     }
     
+<<<<<<< priserdv/src/java/com/crosemont/priserdv/model/DAO/RendezvousImpDAOTest.java
     
     public static void testFindRDVDISPO(){
         System.out.println("findAll");
         RendezvousImpDAO instance = new RendezvousImpDAO();
         
         List<Rendezvous> result = instance.findByMedecinDispo();
+=======
+        private static void testUpdateRendezvousRaisonPrecision() {
+        System.out.println("UpdateRendezvousRaisonPrecision");
+        RendezvousImpDAO instance = new RendezvousImpDAO();
+
+        boolean result = instance.updateRaisonPrecision(36, "aaa", "bbb");
+        // assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        if (result) {
+            System.out.println("reussi");
+        } else {
+            System.out.println("echec");
+        }
+    }
+        
+    public static void testFindByPatientId() {
+        System.out.println("FindByPatientId");
+        RendezvousImpDAO instance = new RendezvousImpDAO();
+        // List<Utilisateur> expResult = null;
+        List<Rendezvous> result = instance.findByPatientId(2);
+>>>>>>> priserdv/src/java/com/crosemont/priserdv/model/DAO/RendezvousImpDAOTest.java
         // assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         System.out.println(result.get(0).afficherTitreDesColonnes());

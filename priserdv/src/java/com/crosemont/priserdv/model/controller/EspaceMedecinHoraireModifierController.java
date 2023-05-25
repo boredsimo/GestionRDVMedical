@@ -9,7 +9,6 @@ import com.crosemont.priserdv.model.DAO.RendezvousImpDAO;
 import com.crosemont.priserdv.model.entities.Rendezvous;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -22,11 +21,11 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author julie
+ * @author Giguere Julien
  */
-public class EspaceMedecinHoraireAttributionController extends HttpServlet {
+public class EspaceMedecinHoraireModifierController extends HttpServlet {
 
-  Rendezvous unRendezvous;
+    Rendezvous unRendezvous;
     RendezvousImpDAO daoRendezvous = new RendezvousImpDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -39,26 +38,18 @@ public class EspaceMedecinHoraireAttributionController extends HttpServlet {
         ZoneId defaultZoneId = ZoneId.systemDefault();
 
         Date date1 = Date.from(dateTime.atZone(defaultZoneId).toInstant());
-
         
         boolean result = false;
 
         int id = Integer.parseInt(request.getParameter("rendezvousID"));
-        
-             
-        try {
-                int patient_id = Integer.parseInt(request.getParameter("patientID")); 
-                result = daoRendezvous.updatePatientID(id, patient_id);
-            } catch (Exception ex) {
-                result = false;
-            }
+        String raison = request.getParameter("raison");
+        String precision = request.getParameter("precision");
+        result = daoRendezvous.updateRaisonPrecision(id, raison, precision);
 
         String pattern = "H:mm dd-MM-yyyy";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         if (result) {
-            request.setAttribute("message", "Rendez-vous attribué avec succès (" + simpleDateFormat.format(date1) + ").");
-        } else {
-            request.setAttribute("message", "Impossible d'attribuer ce rendez-vous. Veuillez bien choisir l'identifiant du patient.");
+            request.setAttribute("message", "Rendez-vous modifié avec succès (" + simpleDateFormat.format(date1) + ").");
         }
         request.setAttribute("date", date1);
         request.getRequestDispatcher("EspaceMedecinHoraireController").include(request, response);

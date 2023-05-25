@@ -32,4 +32,5 @@ public interface PatientDAO {
     boolean isNAMxist(String nam);
     
     boolean isNumExist(String num);
+    public List<Patient> findAllByRendezvousAndMedecinID(int id);
 }

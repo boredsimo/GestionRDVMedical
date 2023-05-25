@@ -23,23 +23,17 @@
 
                 <h2>Connexion - Medecin</h2>
                 <div>
-            <form action="connexionMedecinController" method="post">
-                    <div class="form-outline mb-4">
-                    <input type="email" name="email" class="form-control" />
-                    <label class="form-label" for="email">Adresse Email:</label>
-                    </div>
-                                            Password : <input type="password" name="password"/> <br>
-                    <% if (request.getAttribute("invalide") != null) {%>
-                    <p style="color:red;"><%=request.getAttribute("invalide")%></p>
-                    <%}%>
-                    <input type="submit" value="Se connecter en tant que Medecin"/>
-            </form>
+                    <form action="connexionMedecinController" method="post" style="text-align: center;" >
+                        Email : <input type="email" name="email"/> <br>
+                        Password : <input type="password" name="password"/> <br>
+                        <% if (request.getAttribute("invalide") != null) {%>
+                        <p style="color:red;"><%=request.getAttribute("invalide")%></p>
+                        <%}%>
+                        <input type="submit" value="Se connecter en tant que Medecin"/>
+                    </form>
                 </div>
-                        
-                        
-                        <div>
-                            <form>
-  
+
+
 
         </main>
 

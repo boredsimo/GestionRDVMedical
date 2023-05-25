@@ -5,63 +5,43 @@
  */
 package com.crosemont.priserdv.model.controller;
 
+import com.crosemont.priserdv.model.DAO.PatientImpDAO;
 import com.crosemont.priserdv.model.DAO.RendezvousImpDAO;
+import com.crosemont.priserdv.model.entities.Patient;
 import com.crosemont.priserdv.model.entities.Rendezvous;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author julie
  */
-public class EspaceMedecinHoraireAttributionController extends HttpServlet {
+public class EspaceMedecinDossierPatientController extends HttpServlet {
 
-  Rendezvous unRendezvous;
+    Patient unPatient= new Patient();
+    PatientImpDAO daoPatient = new PatientImpDAO();
+
+    List<Rendezvous> listeRendezvous;
     RendezvousImpDAO daoRendezvous = new RendezvousImpDAO();
-
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        String chaineDateHeure = request.getParameter("dateHeure");
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm");
-        LocalDateTime dateTime = LocalDateTime.parse(chaineDateHeure, formatter);
-        ZoneId defaultZoneId = ZoneId.systemDefault();
-
-        Date date1 = Date.from(dateTime.atZone(defaultZoneId).toInstant());
-
         
-        boolean result = false;
-
-        int id = Integer.parseInt(request.getParameter("rendezvousID"));
+        int patient_id = Integer.parseInt(request.getParameter("patient_id"));
+        unPatient = daoPatient.findById(patient_id);
         
-             
-        try {
-                int patient_id = Integer.parseInt(request.getParameter("patientID")); 
-                result = daoRendezvous.updatePatientID(id, patient_id);
-            } catch (Exception ex) {
-                result = false;
-            }
+                
+        request.setAttribute("unPatient", unPatient);
+        
 
-        String pattern = "H:mm dd-MM-yyyy";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        if (result) {
-            request.setAttribute("message", "Rendez-vous attribué avec succès (" + simpleDateFormat.format(date1) + ").");
-        } else {
-            request.setAttribute("message", "Impossible d'attribuer ce rendez-vous. Veuillez bien choisir l'identifiant du patient.");
-        }
-        request.setAttribute("date", date1);
-        request.getRequestDispatcher("EspaceMedecinHoraireController").include(request, response);
+        request.getRequestDispatcher("espaceMedecinDossierPatient.jsp").include(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -18,6 +18,7 @@ public interface RendezvousDAO {
     Rendezvous findById(int id);
     Rendezvous findByHeure(Date date);
     List<Rendezvous> findByMedecinId(int numero);
+    List<Rendezvous> findByPatientId(int numero);
     List<Rendezvous> findByMedecinIdAndDate(int numero, Date date);
     List<Rendezvous> findByMedecinIdAndSemaine(int numero);
     boolean delete(int id);
@@ -25,4 +26,5 @@ public interface RendezvousDAO {
     boolean update(Rendezvous rendezvous);
     boolean updatePatientID(int rdv_id, int patient_id);
     List<Rendezvous> findByMedecinDispo();
+    boolean updateRaisonPrecision(int rdv_id, String raison, String precision);
 }
