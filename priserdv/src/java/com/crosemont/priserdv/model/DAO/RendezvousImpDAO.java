@@ -30,6 +30,7 @@ public class RendezvousImpDAO implements RendezvousDAO{
     private static final String SQL_INSERT_RENDEZVOUS= "insert into rendezvous(heure,raison,patient_id,medecin_id) value(?,?,?,?)";
     private static final String SQL_SELECT_RENDEZVOUS_PAR_MEDECINID_AND_DATE= "select * from rendezvous where medecin_id = ? and heure BETWEEN ? AND ?"; //and heure < ?
     private static final String SQL_UPDATE_RENDEZVOUS_PATIENTID="UPDATE rendezvous SET patient_id = ? WHERE id = ?";
+    private static final String SQL_UPDATE_RENDEZVOUS_RAISON_PRECISION="UPDATE rendezvous SET `raison` = ?,`precision`= ? WHERE id = ?";
     
     @Override
     public List<Rendezvous> findAll() {
@@ -214,6 +215,29 @@ public class RendezvousImpDAO implements RendezvousDAO{
             
             ps.setInt(1, patient_id);
             ps.setInt(2, rdv_id);
+            nbLigne = ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(RendezvousImpDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (nbLigne > 0) {
+            retour = true;
+        }
+        ConnexionBD.closeConnection();
+        return retour;
+    }
+
+    @Override
+    public boolean updateRaisonPrecision(int rdv_id, String raison, String precision) {
+        boolean retour = false;
+        int nbLigne = 0;
+        PreparedStatement ps;
+        
+        try {
+            ps = ConnexionBD.getConnection().prepareStatement(SQL_UPDATE_RENDEZVOUS_RAISON_PRECISION);
+            
+            ps.setString(1, raison);
+            ps.setString(2, precision);
+            ps.setInt(3, rdv_id);
             nbLigne = ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(RendezvousImpDAO.class.getName()).log(Level.SEVERE, null, ex);
