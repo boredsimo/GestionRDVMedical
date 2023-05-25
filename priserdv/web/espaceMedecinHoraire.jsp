@@ -62,7 +62,7 @@
                                     <tr>
                                         <th scope="col"></th>
                                             <%!  Locale locale = new Locale("fr", "FR");
-                                            SimpleDateFormat sdf = new SimpleDateFormat("E d MMMMMMMM yyyy", locale);%> 
+                                                SimpleDateFormat sdf = new SimpleDateFormat("E d MMMMMMMM yyyy", locale);%> 
                                         <th scope="col"><%= sdf.format(today)%></th>
                                     </tr>
                                 </thead>
@@ -89,7 +89,7 @@
 
                                                     if (unRDV.getPatient_id() == 1) {
                                                         //class="bg-info"
-                                        %> 
+%> 
                                         <td class="bg-info">
                                             <!-- Affichage d'un rendez-vous attribué a aucun patient (patient admin id=1)-->
                                             <div style="display: inline;">
@@ -98,18 +98,18 @@
 
                                                 <span>Attribuer ce rendez-vous à :</span>
                                                 <form action="EspaceMedecinHoraireAttributionController" method="post" style="display: inline;">
-                                                    <input type="hidden" id="rendezvousID" value="<%=unRDV.getId()%>" name="rendezvousID">
+                                                    <input type="hidden" id="rendezvousID" value="<%=unRDV.getId()%>" name="rendezvousID"/>
                                                     <input type="hidden" id="dateHoraire" value="<fmt:formatDate pattern = "yyyy-MM-dd" value = "<%= today%>" />" name="dateHoraire" />
                                                     <input type="hidden" id="dateHeure" value="<fmt:formatDate pattern='yyyy-MM-dd' value ='<%= today%>' /><fmt:formatDate pattern = "-HH-mm" value = "<%= unePlaceHoraire%>" />" name="dateHeure" />
                                                     <input type="text" id="patientID" value="" placeholder="patient ID" name="patientID" />
                                                     <button class="btn btn-info" type="submit" >Attribuer</button>
-
-                                                    <form action="EspaceMedecinHoraireDeleteController" method="post" style="float:right;display: inline;" onsubmit="return confirm('Voulez-vous vraiment supprimer ce rendez-vous?');">
-                                                        <input type="hidden" id="rendezvousID" value="<%=unRDV.getId()%>" name="rendezvousID">
-                                                        <input type="hidden" id="dateHoraire" value="<fmt:formatDate pattern = "yyyy-MM-dd" value = "<%= today%>" />" name="dateHoraire" />
-                                                        <input type="hidden" id="dateHeure" value="<fmt:formatDate pattern='yyyy-MM-dd' value ='<%= today%>' /><fmt:formatDate pattern = "-HH-mm" value = "<%= unePlaceHoraire%>" />" name="dateHeure" />
-                                                        <button class="btn btn-danger" type="submit" >Supprimer</button>
-                                                    </form>
+                                                </form>
+                                                <form action="EspaceMedecinHoraireDeleteController" method="post" style="float:right;" onsubmit="return confirm('Voulez-vous vraiment supprimer ce rendez-vous?');">
+                                                    <input type="hidden" id="rendezvousID" value="<%=unRDV.getId()%>" name="rendezvousID"/>
+                                                    <input type="hidden" id="dateHoraire" value="<fmt:formatDate pattern = "yyyy-MM-dd" value = "<%= today%>" />" name="dateHoraire" />
+                                                    <input type="hidden" id="dateHeure" value="<fmt:formatDate pattern='yyyy-MM-dd' value ='<%= today%>' /><fmt:formatDate pattern = "-HH-mm" value = "<%= unePlaceHoraire%>" />" name="dateHeure" />
+                                                    <button class="btn btn-danger" type="submit" >Supprimer</button>
+                                                </form>
 
                                             </div>
                                         </td>
@@ -117,13 +117,13 @@
 
                                         } else {
                                             //class="bg-success"
-                                        %>
+%>
                                         <td class="bg-success">
                                             <!-- Affichage d'un rendez-vous attribué a un patient-->
                                             <div style="display: inline;">
                                                 <span>Patient <%=  unRDV.getPatient_id()%> : </span>
                                                 <form action="EspaceMedecinHoraireModifierController" method="post">
-                                                    <input type="hidden" id="rendezvousID" value="<%=unRDV.getId()%>" name="rendezvousID">
+                                                    <input type="hidden" id="rendezvousID" value="<%=unRDV.getId()%>" name="rendezvousID"/>
                                                     <input type="hidden" id="dateHoraire" value="<fmt:formatDate pattern = "yyyy-MM-dd" value = "<%= today%>" />" name="dateHoraire" />
                                                     <input type="hidden" id="dateHeure" value="<fmt:formatDate pattern='yyyy-MM-dd' value ='<%= today%>' /><fmt:formatDate pattern = "-HH-mm" value = "<%= unePlaceHoraire%>" />" name="dateHeure" />
                                                     <textarea id="raison" name="raison" rows="2" cols="25" placeholder=" raison"maxlength="45"><%if (unRDV.getRaison() != null) {%><%=unRDV.getRaison()%><%}%></textarea>
