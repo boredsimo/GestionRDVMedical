@@ -25,4 +25,5 @@ public interface RendezvousDAO {
     boolean update(Rendezvous rendezvous);
     boolean updatePatientID(int rdv_id, int patient_id);
     List<Rendezvous> findByMedecinDispo();
+    public List<Rendezvous> findByPatientId(int patient_id);
 }

@@ -38,7 +38,7 @@
                 <nav>
                     <ul>
                         <img src="images/logo.png" alt="Logo" style="border-radius:0%;" width="47px" height="47px">
-                        <li style="box-sizing: border-box;  border-radius:0%;display: block;"><a href="espacePatient.jsp" class="active">Mes Rendez-vous</a></li>
+                        <li style="box-sizing: border-box;  border-radius:0%;display: block;"><a href="mesrendezvous" class="active">Mes Rendez-vous</a></li>
                         <li style="box-sizing: border-box;  border-radius:0%;display: block;"><a href="controllerVersMesRendezvous">Prendre un Rendez-vous</a></li>
                         <li style="box-sizing: border-box;  border-radius:0%; display: block;"><a href="comptepatient">Mon Compte</a></li>
                         <li style="box-sizing: border-box;  border-radius:0%;display: block;"><a href="deconnexionController">Deconnexion</a></li>

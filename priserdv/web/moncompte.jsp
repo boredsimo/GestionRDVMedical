@@ -23,7 +23,7 @@
             <section class="centrale">
 
                 <h2>Connexion - Patient</h2>
-                <div style="display: flex; width: 100%; list-style: none;margin: 0; padding: 0; background-color: lightblue">
+                <div style="display: flex; width: 100%; list-style: none;margin: 0; padding: 0; background-color: rgb(40, 92, 164);">
                     <div style="flex: 1;
                          text-align: center;"> <img src="images/Alfred.png" > </div>
                     <div style="flex: 1;
@@ -34,7 +34,7 @@
   text-align: center;"><h3>Prenom: </h3>
                         <br> <h2><%= patient.getPrenom() %> </h2></div>
                 </div>
-                <div style="display: flex; width: 100%; list-style: none;margin: 0; padding: 0; background-color: lightblue">
+                <div style="display: flex; width: 100%; list-style: none;margin: 0; padding: 0; background-color: rgb(40, 92, 164);">
                     <div style="flex: 1;
                          text-align: center;"><h3>Date de naissance: </h3> 
                         <h2><%= patient.getDateNaissance() %> </h2></div>

@@ -13,35 +13,31 @@
     </head>
     <body>
         <header>
-            <div class="banniere">
-                <img id="logo" src="images/logo.png" alt="logo" />
-                <img id="rosemont" src="images/rosemont.png" alt="rosemont" />
-                <h1>Clinique Médicale du Collège de Rosemont</h1>
-
-            </div>
-            <div>
+            
+            <div style="background-color: white">
                 <nav>
-                    <ul>
-                        <li>
+                    <ul> <img id="logo" src="images/logo.png" alt="logo" />
+                        <li style="box-sizing: border-box;  border-radius:0%;display: block;">
                             <a
                                 href="">Dossier de patient
                             </a>
                         </li>
-                        <li>
+                        <li style="box-sizing: border-box;  border-radius:0%;display: block;">
                             <a
                                 href="EspaceMedecinHoraireController">Mon horaire
                             </a>
                         </li>
-                        <li>
+                        <li style="box-sizing: border-box;  border-radius:0%;display: block;">
                             <a
                                 href="EspaceMedecinMonCompteController">Mon Compte
                             </a>
                         </li>
-                        <li>
+                        <li style="box-sizing: border-box;  border-radius:0%;display: block;">
                             <a
                                 href="index.jsp">Deconnexion
                             </a>
                         </li>
+                        <img id="rosemont" src="images/rosemont.png" alt="rosemont" />
                     </ul>
                 </nav>
 

@@ -19,8 +19,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author mfate
  */
-@WebServlet(name = "EspcaceClientReserverHoraire", urlPatterns = {"/espcaceClientReserverHoraire"})
-public class EspcaceClientReserverHoraire extends HttpServlet {
+@WebServlet(name = "mesrendezvous", urlPatterns = {"/mesrendezvous"})
+public class mesrendezvous extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,20 +31,19 @@ public class EspcaceClientReserverHoraire extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    Rendezvous unRendezvous;
-    RendezvousImpDAO daoRendezvous = new RendezvousImpDAO();
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-             boolean result = false;
-            int id = Integer.parseInt(request.getParameter("rendezvousID"));
             HttpSession session = request.getSession(true);
-                
-            int patientid= (int)    session.getAttribute("id");
-            result = daoRendezvous.updatePatientID(id, patientid);
-            request.getRequestDispatcher("prendreRendezvous.jsp").include(request, response);
+            int i= (int) session.getAttribute("id");
+            Rendezvous rdv= new Rendezvous();
+            RendezvousImpDAO rdvimp= new RendezvousImpDAO();
+            rdv=(Rendezvous) rdvimp.findByPatientId(i);
+            session.setAttribute("rdv", rdv);
+            
+            request.getRequestDispatcher("mesrdvs.jsp").forward(request, response);
         }
     }
 
