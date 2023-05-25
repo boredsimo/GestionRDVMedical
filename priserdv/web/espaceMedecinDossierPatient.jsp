@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="com.crosemont.priserdv.model.entities.Patient"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
@@ -7,6 +8,7 @@
     Author     : Giguere Julien
 --%>
 <% Patient unPatient = (Patient) request.getAttribute("unPatient"); %>
+<% List<Patient> listeRendezvous = (List<Patient>) request.getAttribute("listeRendezvous"); %>
 
 <html>
     <title>Espace Medecin - Dossier de Patient</title>

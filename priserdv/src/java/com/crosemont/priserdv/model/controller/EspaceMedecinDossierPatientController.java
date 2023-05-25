@@ -37,9 +37,10 @@ public class EspaceMedecinDossierPatientController extends HttpServlet {
         int patient_id = Integer.parseInt(request.getParameter("patient_id"));
         unPatient = daoPatient.findById(patient_id);
         
+        listeRendezvous = daoRendezvous.findByPatientId(patient_id);
                 
         request.setAttribute("unPatient", unPatient);
-        
+        request.setAttribute("listeRendezvous", listeRendezvous);
 
         request.getRequestDispatcher("espaceMedecinDossierPatient.jsp").include(request, response);
     }
