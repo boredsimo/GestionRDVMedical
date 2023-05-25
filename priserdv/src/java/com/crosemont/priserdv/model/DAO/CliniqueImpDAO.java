@@ -27,6 +27,9 @@ public class CliniqueImpDAO implements CliniqueDAO{
     private static final String SQL_SELECT_CLINIQUE_PAR_ADDRESSERUE = "select * from clinique where adresseRue = ?";
     private static final String SQL_CONNEXION_PAR_EMAIL_AND_PASSWORD = "select nomClinique, adresseRue from clinique where email=? and motdepasse=?";
     private static final String SQL_INSERT_CLINIQUE="insert into clinique(id,email,motdepasse,nomClinique,adresseRue,zip,pays,ville,province) value(?,?,?,?,?,?,?,?,?)";
+    private static final String SQL_SELECT_ENDROITS_PAR_PATIENT_ID = "SELECT rendezvous.id, medecin.nom, clinique.nomClinique,clinique.adresseRue, clinique.adresseRue, clinique.ville,clinique.province, clinique.zip  FROM clinique, rendezvous, medecin where rendezvous.patient_id = ? and rendezvous.medecin_id =medecin.id and medecin.clinique_id = clinique.id ;";
+    
+    
     @Override
     public List<Clinique> findAll() {
         
@@ -297,6 +300,48 @@ public class CliniqueImpDAO implements CliniqueDAO{
     @Override
     public boolean update(Clinique clinique) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Clinique> findLocationsByPatientID(int patient_id) {
+        List<Clinique> list = null;
+
+            //Initialise la requête préparée basée sur la connexion
+            // la requête SQL passé en argument pour construire l'objet preparedStatement
+            
+        try {
+            PreparedStatement ps;
+            ps = ConnexionBD.getConnection().prepareStatement(SQL_SELECT_ENDROITS_PAR_PATIENT_ID);
+            ps.setInt(1, patient_id);
+            System.out.println(" result : " + ps.toString());
+            //On execute la requête et on récupère les résultats dans la requête 
+            // dans ResultSet
+            ResultSet result = ps.executeQuery();
+               
+            list = new ArrayList<>();
+            //// la méthode next() pour se déplacer sur l'enregistrement suivant
+            //on parcours ligne par ligne les résultas retournés
+            while (result.next()) {
+                Clinique clinique = new Clinique();
+                 //System.out.println(" result : " + result.getString("email"));
+                clinique.setId(result.getInt("id"));
+                clinique.setEmail(result.getString("nom"));
+                //clinique.setMotdepasse(result.getString("motdepasse"));
+                clinique.setNomClinique(result.getString("nomClinique"));
+                clinique.setAddresseRue(result.getString("adresseRue"));
+                clinique.setZip(result.getString("zip"));
+                //clinique.setPays(result.getString("pays"));
+                clinique.setVille(result.getString("ville"));
+                clinique.setProvince(result.getString("province"));
+                list.add(clinique);
+            };
+        } catch (SQLException ex) {
+            Logger.getLogger(CliniqueImpDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+               
+        //Fermeture de toutes les ressources ouvertes
+        ConnexionBD.closeConnection();
+        return list;
     }
     
 }
