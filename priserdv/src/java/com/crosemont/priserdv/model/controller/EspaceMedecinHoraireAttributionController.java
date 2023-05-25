@@ -9,6 +9,7 @@ import com.crosemont.priserdv.model.DAO.RendezvousImpDAO;
 import com.crosemont.priserdv.model.entities.Rendezvous;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -43,13 +44,21 @@ public class EspaceMedecinHoraireAttributionController extends HttpServlet {
         boolean result = false;
 
         int id = Integer.parseInt(request.getParameter("rendezvousID"));
-        int patient_id = Integer.parseInt(request.getParameter("patientID"));
-        result = daoRendezvous.updatePatientID(id, patient_id);
+        
+             
+        try {
+                int patient_id = Integer.parseInt(request.getParameter("patientID")); 
+                result = daoRendezvous.updatePatientID(id, patient_id);
+            } catch (Exception ex) {
+                result = false;
+            }
 
         String pattern = "H:mm dd-MM-yyyy";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         if (result) {
             request.setAttribute("message", "Rendez-vous attribué avec succès (" + simpleDateFormat.format(date1) + ").");
+        } else {
+            request.setAttribute("message", "Impossible d'attribuer ce rendez-vous. Veuillez bien choisir l'identifiant du patient.");
         }
         request.setAttribute("date", date1);
         request.getRequestDispatcher("EspaceMedecinHoraireController").include(request, response);
