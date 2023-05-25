@@ -30,6 +30,8 @@ public class RendezvousImpDAO implements RendezvousDAO{
     private static final String SQL_INSERT_RENDEZVOUS= "insert into rendezvous(heure,raison,patient_id,medecin_id) value(?,?,?,?)";
     private static final String SQL_SELECT_RENDEZVOUS_PAR_MEDECINID_AND_DATE= "select * from rendezvous where medecin_id = ? and heure BETWEEN ? AND ?"; //and heure < ?
     private static final String SQL_UPDATE_RENDEZVOUS_PATIENTID="UPDATE rendezvous SET patient_id = ? WHERE id = ?";
+    private static final String SQL_FIND_RDV_DISPO="select rendezvous.id, rendezvous.heure, rendezvous.raison,rendezvous.patient_id,rendezvous.medecin_id "
+            + "from medecin,rendezvous where medecin.id=rendezvous.medecin_id and medecin.specialisation_id=1; ";
     
     @Override
     public List<Rendezvous> findAll() {
@@ -223,6 +225,49 @@ public class RendezvousImpDAO implements RendezvousDAO{
         }
         ConnexionBD.closeConnection();
         return retour;
+    }
+
+    @Override
+    public List<Rendezvous> findByMedecinDispo() {
+        List<Rendezvous> list = null;
+        
+
+            //Initialise la requête préparée basée sur la connexion
+            // la requête SQL passé en argument pour construire l'objet preparedStatement
+            
+        try {
+            PreparedStatement ps;
+            ps = ConnexionBD.getConnection().prepareStatement(SQL_FIND_RDV_DISPO);
+            
+            System.out.println(" result : " + ps.toString());
+            //On execute la requête et on récupère les résultats dans la requête 
+            // dans ResultSet
+            ResultSet result = ps.executeQuery();
+               
+            list = new ArrayList<>();
+            //// la méthode next() pour se déplacer sur l'enregistrement suivant
+            //on parcours ligne par ligne les résultas retournés
+            while (result.next()) {
+                Rendezvous rendezvous = new Rendezvous();
+                 System.out.println(" result : " + result.getInt("id"));
+                rendezvous.setId(result.getInt("id"));
+                Date date=new Date(result.getTimestamp("heure").getTime()); 
+                rendezvous.setHeure(date);
+                rendezvous.setRaison(result.getString("raison"));
+                //rendezvous.setPrecision(result.getString("precision"));
+                rendezvous.setPatient_id(result.getInt("patient_id"));
+                rendezvous.setMedecin_id(result.getInt("medecin_id"));
+
+                list.add(rendezvous);
+            };
+        } catch (SQLException ex) {
+            Logger.getLogger(RendezvousImpDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+               
+        
+        //Fermeture de toutes les ressources ouvertes
+        ConnexionBD.closeConnection();
+        return list;
     }
     
 }
