@@ -40,7 +40,8 @@ public class RendezvousImpDAOTest {
         //testFindfindByMedecinIdAndDate();
         //testDeleteRendezvousParID();
         //testUpdateRendezvousPatientID();
-        testUpdateRendezvousRaisonPrecision();
+        //testUpdateRendezvousRaisonPrecision();
+        testFindByPatientId();
     }
 
     public static void testFindAll() {
@@ -149,7 +150,7 @@ public class RendezvousImpDAOTest {
     }
     
     private static void testDeleteRendezvousParID() {
-        System.out.println("FindfindByMedecinIdAndDate");
+        System.out.println("DeleteRendezvousParID");
         RendezvousImpDAO instance = new RendezvousImpDAO();
 
         boolean result = instance.delete(2);
@@ -163,7 +164,7 @@ public class RendezvousImpDAOTest {
     }
     
     private static void testUpdateRendezvousPatientID() {
-        System.out.println("FindfindByMedecinIdAndDate");
+        System.out.println("UpdateRendezvousPatientID");
         RendezvousImpDAO instance = new RendezvousImpDAO();
 
         boolean result = instance.updatePatientID(356, 2);
@@ -177,7 +178,7 @@ public class RendezvousImpDAOTest {
     }
     
         private static void testUpdateRendezvousRaisonPrecision() {
-        System.out.println("FindfindByMedecinIdAndDate");
+        System.out.println("UpdateRendezvousRaisonPrecision");
         RendezvousImpDAO instance = new RendezvousImpDAO();
 
         boolean result = instance.updateRaisonPrecision(36, "aaa", "bbb");
@@ -187,6 +188,19 @@ public class RendezvousImpDAOTest {
             System.out.println("reussi");
         } else {
             System.out.println("echec");
+        }
+    }
+        
+    public static void testFindByPatientId() {
+        System.out.println("FindByPatientId");
+        RendezvousImpDAO instance = new RendezvousImpDAO();
+        // List<Utilisateur> expResult = null;
+        List<Rendezvous> result = instance.findByPatientId(2);
+        // assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        System.out.println(result.get(0).afficherTitreDesColonnes());
+        for (Rendezvous rendezvous : result) {
+            System.out.println(rendezvous.toString());
         }
     }
 }

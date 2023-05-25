@@ -315,7 +315,7 @@ public class PatientImpDAO implements PatientDAO {
                 + "patient.email,"
                 + "patient.motdepasse,"
                 + "patient.admin,"
-                + "patient.medecin_id FROM priserdv.patient, priserdv.rendezvous where rendezvous.patient_id = patient.id  and rendezvous.medecin_id = 1 and NOT rendezvous.patient_id = 1 group by priserdv.patient.id";
+                + "patient.medecin_id FROM priserdv.patient, priserdv.rendezvous where rendezvous.patient_id = patient.id  and rendezvous.medecin_id = ? and NOT rendezvous.patient_id = 1 group by priserdv.patient.id";
     
         List<Patient> listePatient = null;
         try {
