@@ -24,6 +24,7 @@
             <li><a href="compte.html">Nos services</a></li>
             <li><a href="connexionMedecin.jsp">Espace Docteur</a></li>
             <li><a href="connexionPatient.jsp">Espace Client</a></li>
+            <li><a href="inscriptionPatient.jsp">Inscription Patient</a></li>
             <div class="container-fluid" style="outline-color: red ;outline: red"><img src="images/rosemont.png" alt="alt" style="float: right;"/></div>
         
         </ul>

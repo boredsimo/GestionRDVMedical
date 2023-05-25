@@ -14,7 +14,7 @@
     <body>
         <footer>
 
-            <div class="foot">
+            <div class="foot" style="  background-color: rgb(40, 92, 164);">
                 Clinique Médicale du Collège de Rosemont<br>
                 6400 16e Avenue, Montréal, QC H1X 2S9
                 <p id="copyright">© 2023 Collège de Rosemont  Cours : Applications Web 2 – Tous droits réservés</p>

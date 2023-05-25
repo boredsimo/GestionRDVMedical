@@ -30,20 +30,6 @@
             <section class="centrale">
                 
                 
-                <div class="boiteConnexion"> 
-                    <h1>Connexion</h1>
-                    
-                    <h3><a href="connexionPatient.jsp">Patient</a></h3>
-                    <h3><a href="connexionMedecin.jsp">Medecin</a></h3>
-                    <h3><a href="connexionClinique.jsp">Clinique</a></h3>
-                </div>
-                <div class="boiteInscription"> 
-                    <h1>Inscription</h1>
-                    
-                    <h3><a href="inscriptionPatient.jsp">Patient</a></h3>
-                    <h3><a>Medecin</a></h3>
-                    <h3><a>Clinique</a></h3>
-                </div>
                 <div style=" display: flex; align-items: center; justify-content: center;height:700px ; text-align: center;">
                 <div class="content display-container" style="background-color: rgb(40, 92, 164);justify-content: center; align-items: center; text-align: center;">
                     <img class="mySlides" src="images/clinique1.jpeg" style="width: 700px;height:500px">

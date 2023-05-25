@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -39,8 +40,12 @@ public class EspcaceClientReserverHoraire extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
              boolean result = false;
             int id = Integer.parseInt(request.getParameter("rendezvousID"));
-            int patient_id = Integer.parseInt(request.getParameter("patientID"));
+            HttpSession session = request.getSession(true);
+            int patient_id = (int) session.getAttribute("id");
             result = daoRendezvous.updatePatientID(id, patient_id);
+            if (result) {
+                request.setAttribute("message", "Rendez-vous réservé avec succès.");
+            }
             request.getRequestDispatcher("prendreRendezvous.jsp").include(request, response);
         }
     }
