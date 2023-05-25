@@ -5,12 +5,18 @@
  */
 package com.crosemont.priserdv.model.controller;
 
+import com.crosemont.priserdv.model.DAO.MedecinImpDAO;
+import com.crosemont.priserdv.model.DAO.RendezvousImpDAO;
+import com.crosemont.priserdv.model.entities.Medecin;
+import com.crosemont.priserdv.model.entities.Rendezvous;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -27,10 +33,21 @@ public class espacePatientController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    //private Rendezvous unRendezvous;
+    RendezvousImpDAO daoRendezvous = new RendezvousImpDAO();
+    MedecinImpDAO medecinDao=new MedecinImpDAO();
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
         try (PrintWriter out = response.getWriter()) {
+            
+            HttpSession session = request.getSession(true);
+            List<Rendezvous> listrdv =daoRendezvous.findByMedecinDispo();
+            
+            session.setAttribute("listDispo", listrdv);
+            
             request.getRequestDispatcher("espacePatient.jsp").forward(request, response);
         }
     }
